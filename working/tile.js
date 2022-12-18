@@ -7,6 +7,7 @@ class Tile {
         this.rotateAngle = _a2;
         this.a = _a;
         this.b = _b;
+        this.c = _a - _b;
         this.col = color(random(255), 0, random(255));
     }
 
@@ -14,9 +15,9 @@ class Tile {
         push();
         beginShape();
         vertex(0, 0);
-        bezierVertex(3 * this.x, -3 * this.x, 5 * this.x, 3 * this.x, 8 * this.x, 0);
-        line(8 * this.x, 0, 6 * this.x, this.sH * this.x);
-        line(6 * this.x, this.sH * this.x, 8 * this.x, this.tW * this.x);
+        bezierVertex(this.b * this.x, - this.b * this.x, this.c * this.x, this.b * this.x, this.a * this.x, 0);
+        line(this.a * this.x, 0, 2*this.b * this.x, this.sH * this.x);
+        line(2*this.b * this.x, this.sH * this.x, this.a * this.x, this.tW * this.x);
         endShape();
         pop();
     }
@@ -25,7 +26,7 @@ class Tile {
         push();
         shearX(this.shearAngle);
         this.halfTile(x);
-        translate(8 * this.x, this.tW * this.x);
+        translate(this.a * this.x, this.tW * this.x);
         rotate(this.rotateAngle);
         this.halfTile(this.x);
         pop();

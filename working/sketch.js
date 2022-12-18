@@ -2,7 +2,7 @@ let x, y, step, grid;
 let angle1, angle2;
 let tiles = [];
 let tW, tH, sW, sH;
-let a, b, c;
+let a, b;
 
 function setup() {
   createCanvas(500, 300);
@@ -12,9 +12,8 @@ function setup() {
   y = height / 100;
   let area = x*y;
   
-  a = 8;
-  b = 4;
-  c = a - b;
+  a = 5;
+  b = 15;
 
   // slide factor to start on side of quad
   sW = 9.5;
@@ -28,10 +27,10 @@ function setup() {
   shearA = PI / 4; // shear angle
   rotA = PI; // rotate angle
 
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 10; i++) {
     push();
     
-    tiles.push(new Tile(y, tW, sH, shearA, rotA));
+    tiles.push(new Tile(y, tW, sH, shearA, rotA, a, b));
     pop();
   }
 }
