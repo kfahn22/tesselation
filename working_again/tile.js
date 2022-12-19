@@ -36,26 +36,35 @@ class Tile {
         pop();
     }
 
-    showTwo() {
+    tileTranslate() {
         push();
         noFill();
-        strokeWeight(3);
+        strokeWeight(2);
         stroke(this.col);
         this.tile();
         stroke(255, 0, 0);
-        translate(this.b * this.x, this.e * this.x)
+        translate(this.a + this.b*this.x, this.e*this.x);
         this.tile();
         pop();
     }
 
-    tileGlide(sx, sy) {
+    tileGlide() {
         push();
         noFill();
-        strokeWeight(1);
+        strokeWeight(2);
         stroke(this.col);
         this.tile();
-        translate(sx, sy)
+        translate((2*this.a+this.d)*this.x, this.d*this.x);
         this.tile();
         pop();
+    }
+
+    oneUnit() {
+        noFill();
+        strokeWeight(2);
+        stroke(this.col);
+        this.tileTranslate();
+        translate((2*this.a+this.d)*this.x, this.d*this.x);
+        this.tileGlide();
     }
 }

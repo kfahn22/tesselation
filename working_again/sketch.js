@@ -23,7 +23,7 @@ function setup() {
   shearA = PI / 4; // shear angle
   rotA = PI; // rotate angle
   //for (let i = 0; i < height/(b*y); i++) {
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 10; i++) {
     {
       tiles.push(new Tile(y, shearA, rotA, a, b, c, d, e));
     }
@@ -38,13 +38,11 @@ function draw() {
   fill(0, 255, 0);
   circle(35, 14, 4);
   //tiles[0].showOne();
-  for (let j = 0; j < tiles.length; j++) {
-   
-    //tiles[j].showTwo(b*x, e*x);
-
-    // 35, 15
-    push();
-    tiles[j].tileGlide((2*a+d)*y, d*y);
-    pop();
-  }
+ // for (let j = 0; j < 10; j++) {
+    for (let i = 0; i < tiles.length; i++) 
+    {
+     // let index = j*x + i;
+      tiles[i].oneUnit();
+    }
+  //}
 }
