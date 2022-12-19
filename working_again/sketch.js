@@ -12,8 +12,8 @@ function setup() {
   y = height / 100;
   let area = x * y;
   // a = 5; a = 15;
-  a = 3;
-  b = 5;
+  a = 4;
+  b = 8;
   c = a + b;
   d = 5;
   e = 10;
@@ -25,7 +25,7 @@ function setup() {
   //for (let i = 0; i < height/(b*y); i++) {
   for (let i = 0; i < 4; i++) {
     {
-      tiles.push(new Tile(x, shearA, rotA, a, b, c, d, e));
+      tiles.push(new Tile(y, shearA, rotA, a, b, c, d, e));
     }
 
   }
@@ -36,12 +36,15 @@ function draw() {
   background(255);
   noStroke();
   fill(0, 255, 0);
-  circle(50, 50, 4);
+  circle(35, 14, 4);
   //tiles[0].showOne();
   for (let j = 0; j < tiles.length; j++) {
    
     //tiles[j].showTwo(b*x, e*x);
-    tiles[j].tileUnit(30, 30);
 
+    // 35, 15
+    push();
+    tiles[j].tileGlide((2*a+d)*y, d*y);
+    pop();
   }
 }
