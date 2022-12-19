@@ -16,14 +16,14 @@ function setup() {
   b = 5;
   c = a + b;
   d = 5;
-  e = 5;
+  e = 10;
 
 
   // Angles for shear and rotate
   shearA = PI / 4; // shear angle
   rotA = PI; // rotate angle
   //for (let i = 0; i < height/(b*y); i++) {
-  for (let i = 0; i < 1; i++) {
+  for (let i = 0; i < 4; i++) {
     {
       tiles.push(new Tile(x, shearA, rotA, a, b, c, d, e));
     }
@@ -39,12 +39,9 @@ function draw() {
   circle(50, 50, 4);
   //tiles[0].showOne();
   for (let j = 0; j < tiles.length; j++) {
-    //translate((2*(a)) * (d), d * d);
-    tiles[j].showOne(b*x, e*x);
-    // for (let i = 1; i < tiles.length; i++) {
-    //   translate(b * d, b * d);
-    //   tiles[i].show();
-    // pop();
+   
+    //tiles[j].showTwo(b*x, e*x);
+    tiles[j].tileUnit(30, 30);
 
   }
 }

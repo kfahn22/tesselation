@@ -20,8 +20,8 @@ class Tile {
         beginShape();
         vertex(0, 0);
         bezierVertex(this.a * this.x, -this.a * this.x, this.b * this.x, this.a * this.x, this.c * this.x, 0);
-        line(this.c * this.x, 0, this.c * this.x, this.d * this.x);
-        line(this.c * this.x, this.d * this.x, this.c * this.x, this.e * this.x);
+        line(this.c * this.x, 0, 2*this.a * this.x, this.d * this.x);
+        line(2*this.a * this.x, this.d * this.x, this.c * this.x, this.e * this.x);
         endShape();
         pop();
     }
@@ -36,22 +36,23 @@ class Tile {
         pop();
     }
     
-    showOne(px, py) {
+    showTwo() {
+        // push();
         noFill();
         strokeWeight(3);
         stroke(this.col);
         this.tile();
         stroke(255,0, 0);
-        translate(px, py)
+        translate(this.b*this.x, this.e*this.x)
         this.tile();
+        // pop();
    } 
 
-    // twoTiles() {
-    //    // c = color(random(255), 0, random(255));
-    //     let px = this.a*this.x;
-    //     let py = this.d*this.x;
-    //     this.tile.showOne(px,py);
-    //     //translate(this.a*this.x, this.d*this.x)
-    //     this.tile.showOne(2*px,2*py);
-    // }
+    tileUnit(sx, sy) {
+        
+        this.showTwo();
+        translate(sx, sy)
+        this.showTwo();
+        
+    }
 }
