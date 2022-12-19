@@ -6,7 +6,7 @@ function setup() {
 }
 
 function draw() {
-  background(0,5,0);
+  background(255);
   x = height/100;
   step = height/100;
   angle1 = PI/4;
