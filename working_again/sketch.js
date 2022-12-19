@@ -23,9 +23,9 @@ function setup() {
   shearA = PI / 4; // shear angle
   rotA = PI; // rotate angle
   //for (let i = 0; i < height/(b*y); i++) {
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 20; i++) {
     {
-      tiles.push(new Tile(y, shearA, rotA, a, b, c, d, e));
+      tiles.push(new Tile(y, shearA, rotA, a, b, c, d, e, 20));
     }
 
   }
@@ -41,7 +41,6 @@ function draw() {
  // for (let j = 0; j < 10; j++) {
     for (let i = 0; i < tiles.length; i++) 
     {
-     // let index = j*x + i;
       tiles[i].oneUnit();
     }
   //}

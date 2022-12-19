@@ -1,7 +1,7 @@
 let clr;
 
 class Tile {
-    constructor(_x, _a1, _a2, _a, _b, _c, _d, _e) {
+    constructor(_x, _a1, _a2, _a, _b, _c, _d, _e, _num) {
         this.x = _x;
         // this.tW = _tW;
         // this.sH = _sH; // shear Height
@@ -12,6 +12,7 @@ class Tile {
         this.c = _c;
         this.d = _d;
         this.e = _e;
+        this.num = _num;
         this.col = color(random(255), 0, random(255));
     }
 
@@ -40,11 +41,15 @@ class Tile {
         push();
         noFill();
         strokeWeight(2);
-        stroke(this.col);
-        this.tile();
-        stroke(255, 0, 0);
-        translate(this.a + this.b*this.x, this.e*this.x);
-        this.tile();
+        for (let i = 0; i < this.num; i++) {
+            stroke(this.col);
+            translate(this.a + this.b * this.x, this.e * this.x);
+            this.tile();
+        }
+        // this.tile();
+        // stroke(255, 0, 0);
+        // translate(this.a + this.b * this.x, this.e * this.x);
+        // this.tile();
         pop();
     }
 
@@ -54,7 +59,7 @@ class Tile {
         strokeWeight(2);
         stroke(this.col);
         this.tile();
-        translate((2*this.a+this.d)*this.x, this.d*this.x);
+        translate((2 * this.a + this.d) * this.x, this.d * this.x);
         this.tile();
         pop();
     }
@@ -64,7 +69,7 @@ class Tile {
         strokeWeight(2);
         stroke(this.col);
         this.tileTranslate();
-        translate((2*this.a+this.d)*this.x, this.d*this.x);
+        translate((2 * this.a + this.d) * this.x, this.d * this.x);
         this.tileGlide();
     }
 }
