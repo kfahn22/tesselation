@@ -31,9 +31,9 @@ function setup() {
   // Angles for shear and rotate
   shearA = PI / 4; // shear angle
   rotA = PI; // rotate angle
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 50; i++) {
     {
-      tiles.push(new Tile(y, shearA, rotA, a, b, c, d, e, 20));
+      tiles.push(new Tile(y, shearA, rotA, a, b, c, d, e, 50));
     }
 
   }
@@ -44,6 +44,7 @@ function draw() {
   background(255);
   stroke(255, 0, 255);
   tiles[0].tile();
+  translate(-800, -500);
     for (let i = 0; i < tiles.length; i++) 
     {
       //tiles[0].tile();
