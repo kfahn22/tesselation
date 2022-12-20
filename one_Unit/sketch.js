@@ -8,9 +8,9 @@ function setup() {
   createCanvas(500, 300);
 
   // size of grid
-  x = width / 100;
-  y = height / 100;
-  let area = x * y;
+  //x = width / 100;
+  //y = height / 100;
+  //let area = x * y;
   
   // working parameters
   // screws up a bit when changed
@@ -22,8 +22,9 @@ function setup() {
 
   a = 4;
   b = 8;
+  y = b/a; // arrived at by trial and error
   c = a + b;
-  d = 5;
+  d = 2;
   e = 10;
 
 

@@ -9,45 +9,48 @@ function setup() {
 
   // size of grid
   x = width / 100;
-  y = height / 100;
+  // y = height / 100;
   let area = x * y;
   // a = 5; a = 15;
-  a = 7;
-  b = 15;
+  a = 5;
+  b = 30;
 
-  sW = 10;
+  //sW = 10;
   sH = 5;
 
   // can adjust this not b
   d = 2;
-  // translate factor to start of new quad
-  tW = d * sH;
-  tH = e * sH;
 
+  y = b/a; // THIS WORKS!!
+  // translate factor to start of new quad
+ // tW = 10; //was d*sH
+  //tH = e * sH;
+  tW = d * a;
   // Angles for shear and rotate
   shearA = PI / 4; // shear angle
   rotA = PI; // rotate angle
 
-  for (let i = 0; i < height / (b * y); i++) {
-    push();
-    if (i % 2 == 0) {
+  for (let i = 0; i < 4; i++) {
+
+      //tile_original.js
       tiles.push(new Tile(y, tW, sH, shearA, rotA, a, b));
-    } else {
-      //translate(tW+sW, 40 + sH*x);
-      // tiles.push(new Tile(y, tW + sW, tH + sH, shearA, rotA, a, b));
-    }
-    pop();
+      //tile.js
+
+      //tiles.push(new Tile(y, shearA, rotA, b, c, a, sH, tW));
+    
 
   }
 }
 
 function draw() {
   background(255);
-  tiles[0].show();
-  for (let i = 1; i < 5; i++) {
+  //tiles[0].show();
+  for (let i = 1; i < 3; i++) {
     translate(b * d, b * d);
+    //translate(b * d, b * d);
+    //tiles[i].oneUnit();
     tiles[i].show();
-    pop();
+    //pop();
     noStroke();
     fill(0, 255, 0);
    // circle(75, 60, 4);
