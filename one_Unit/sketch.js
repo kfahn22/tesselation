@@ -22,7 +22,8 @@ function setup() {
   // c = a + b;
   // d = 5;
   // e = 10;
-
+  
+  //TODO:  work on adding animation changing d or e
   a = 4;
   b = 8;
   y = b/a; // arrived at by trial and error
@@ -49,7 +50,7 @@ function draw() {
   let  col3 = setGradientR(400, 0, 750, 450, c1, c2, X_AXIS);
  
   stroke(255);
-  tiles[0].tile();
+  //tiles[0].tile();
   translate(-800, -500);
     for (let i = 0; i < tiles.length; i++) 
     {
