@@ -29,6 +29,9 @@ class Tile {
 
     tile() {
         push();
+        noFill();
+        strokeWeight(2);
+        stroke(255);
         shearX(this.shearAngle);
         this.halfTile(x);
         translate(this.c * this.x, this.e * this.x);
@@ -42,7 +45,7 @@ class Tile {
         noFill();
         strokeWeight(2);
         for (let i = 0; i < this.num; i++) {
-            stroke(this.col);
+            //stroke(this.col);
             translate(this.a + this.b * this.x, this.e * this.x);
             this.tile();
         }
@@ -56,8 +59,9 @@ class Tile {
     tileGlide() {
         push();
         noFill();
-        strokeWeight(2);
-        stroke(this.col);
+        //strokeWeight(2);
+        //stroke(255);
+        //stroke(this.col);
         this.tile();
         translate((2 * this.a + this.d) * this.x, this.d * this.x);
         this.tile();
@@ -66,8 +70,9 @@ class Tile {
 
     oneUnit() {
         noFill();
-        strokeWeight(2);
-        stroke(this.col);
+        //strokeWeight(2);
+        //stroke(this.col);
+        //stroke(255);
         this.tileTranslate();
         translate((2 * this.a + this.d) * this.x, this.d * this.x);
         this.tileGlide();
