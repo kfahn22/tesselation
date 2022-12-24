@@ -36,7 +36,7 @@ class Tile {
         push();
         noFill();
         strokeWeight(3);
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 1; i++) {
             stroke(this.col);
             translate(this.b + this.c * this.x, this.tW * this.x);
             this.tile();
