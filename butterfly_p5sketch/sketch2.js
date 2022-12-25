@@ -14,8 +14,8 @@ function setup() {
         for (let j = 0; j < 4; j++) {
             if (i % 2 == 0 & j % 2 == 0) {
                 wings.push(new Half(100 * i, 100 * j, 100, 100, c1, c2, 0));
-            // } else if (i % 2 != 0 & j % 2 != 0) {
-            //     wings.push(new Half(100 * i, 100 * j, 100, 100, c2, c1, PI / 2));
+            } else if (i % 2 != 0 & j % 2 != 0) {
+                wings.push(new Half(100 * i, 100 * j, 100, 100, c2, c1, PI / 2));
             // } else if (i % 2 != 0 & j % 2 == 0) {
             //     wings.push(new Half(100 * i, 100 * j, 100, 100, c2, c1, 0));
             }
@@ -39,7 +39,7 @@ function setup() {
 
 function draw() {
     background(0);
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < 3; i++) {
         wings[i].tile();
     }
 

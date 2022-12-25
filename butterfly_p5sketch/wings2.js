@@ -11,7 +11,7 @@ class Half {
 
     bottom() {
         push();
-        //translate(w, h);
+        translate(-this.w/2, -this.h/2);
         //rotate(this.angle);
         fill(this.col2);
         noStroke();
@@ -32,12 +32,12 @@ class Half {
     }
     top() {
         push();
-        //translate(w, h);
-        //rotate(this.angle);
+        translate(-this.w/2, -this.h/2);
+        //otate(this.angle);
         fill(this.col2);
         noStroke();
         beginShape();
-        vertex(0, 0 * this.h);
+        vertex(0, 0);
         bezierVertex(0.15 * this.w, 0.05 * this.h, 0.3 * this.w, 0 * this.h, 0.45 * this.w, this.h * 0.3);
         bezierVertex(0.465 * this.w, 0.15 * this.h, 0.465 * this.w, 0.15 * this.h, 0.55 * this.w, this.h * 0);
         line(0.55 * this.w, 0 * this.h, 0, this.h);
@@ -53,20 +53,15 @@ class Half {
     }
 
     tile() {
-        //push();
-        rect(this.x + this.w / 2, this.y + this.h / 2, this.w, this.h);
         push();
-        translate(this.x / 2, this.y / 2);
-        rotate(this.angle);
+        translate(this.x/2, this.y/2);
         noStroke();
         fill(this.col1);
-
-        push();
+        //rect(this.x-50,this.y-50,this.w,this.h);
+        rect(0, 0, this.w, this.h);
+        rotate(this.angle);
         this.top();
-        pop();
-        push();
         this.bottom();
-        pop();
         pop();
     }
     // wing3() {
