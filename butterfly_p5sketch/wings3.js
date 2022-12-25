@@ -9,70 +9,68 @@ class Tile {
         this.angle = _angle;
     }
 
-    // top() {
-    //     push();
-    //     translate(this.w / 2, this.h / 2);
-    //     //rotate(this.angle);
-    //     //fill(this.col2);
-    //     noFill();
-    //     stroke(255);
-    //     strokeWeight(2);
-    //     //noStroke();
-    //     circle(0, 0, 2);
-    //     // body
-    //     beginShape();
-    //     vertex(-0.08 * this.w, -0.15 * this.h);
-    //     bezierVertex(-0.08 * this.w, -0.16 * this.h, -0.09 * this.w, -0.21 * this.h, 0.0 * this.w, -this.h * 0.35);
-    //     bezierVertex(0.09 * this.w, -0.16 * this.h, 0.08 * this.w, -0.21 * this.h, 0.08 * this.w, -this.h * 0.15)
-    //     endShape();
-    //     beginShape();
-    //     vertex(-0.08 * this.w, 0.15 * this.h);
-    //     bezierVertex(-0.08 * this.w, 0.16 * this.h, -0.09 * this.w, 0.21 * this.h, 0.0 * this.w, this.h * 0.35);
-    //     bezierVertex(0.09 * this.w, 0.16 * this.h, 0.08 * this.w, 0.21 * this.h, 0.08 * this.w, this.h * 0.15)
-    //     endShape();
-    //     //top
-    //     beginShape();
-    //     vertex(-0.07 * this.w, -0.16 * this.h);
-    //     bezierVertex(-0.22 * this.w, -0.28 * this.h, -0.32 * this.w, -.55 * this.h, -0.5 * this.w, -this.h * 0.5);
-    //     endShape();
-    //     beginShape();
-    //     vertex(0.07 * this.w, -0.16 * this.h);
-    //     bezierVertex(0.22 * this.w, -0.28 * this.h, 0.32 * this.w, -.55 * this.h, 0.5 * this.w, -this.h * 0.5);
-    //     endShape();
-    //     // middle
-    //     beginShape();
-    //     vertex(0.08 * this.w, -0.05 * this.h);
-    //     bezierVertex(0.25 * this.w, 0.05 * this.h, 0.35 * this.w, 0.08 * this.h, 0.5 * this.w, this.h * 0.);
-    //     endShape();
-    //     beginShape();
-    //     vertex(-0.08 * this.w, -0.05 * this.h);
-    //     bezierVertex(-0.25 * this.w, 0.05 * this.h, -0.35 * this.w, 0.08 * this.h, -0.5 * this.w, this.h * 0.);
-    //     endShape();
-        
-    //     //bottom
-    //     beginShape();
-    //     vertex(-0.07 * this.w, 0.16 * this.h);
-    //     bezierVertex(-0.22 * this.w, 0.28 * this.h, -0.32 * this.w, .55 * this.h, -0.5 * this.w, this.h * 0.5);
-    //     line(-0.5*this.w, 0.5*this.h, 0.5*this.w, 0.5*this.h);
-        
-    //     vertex(-0.08 * this.w, 0.15 * this.h);
-    //     bezierVertex(-0.08 * this.w, 0.16 * this.h, -0.09 * this.w, 0.21 * this.h, 0.0 * this.w, this.h * 0.35);
-    //     bezierVertex(0.09 * this.w, 0.16 * this.h, 0.08 * this.w, 0.21 * this.h, 0.08 * this.w, this.h * 0.15)
-
-
-    //     // vertex(0.07 * this.w, 0.16 * this.h);
-    //     bezierVertex(0.22 * this.w, 0.28 * this.h, 0.32 * this.w, .55 * this.h, 0.5 * this.w, this.h * 0.5);
-    //     endShape();
-
-        
-    //     pop();
-
-    // }
-
-    top() {
+    wings(angle) {
         push();
-        translate(this.w / 2, this.h / 2);
-        //rotate(this.angle);
+        translate(this.x+ this.w/2, this.y + this.h/2);
+        rotate(angle);
+        //fill(this.col2);
+        noFill();
+        stroke(255);
+        strokeWeight(2);
+        //noStroke();
+        //circle(0, 0, 2);
+        // body
+        beginShape();
+        vertex(-0.08 * this.w, -0.15 * this.h);
+        bezierVertex(-0.08 * this.w, -0.16 * this.h, -0.09 * this.w, -0.21 * this.h, 0.0 * this.w, -this.h * 0.35);
+        bezierVertex(0.09 * this.w, -0.16 * this.h, 0.08 * this.w, -0.21 * this.h, 0.08 * this.w, -this.h * 0.15)
+        endShape();
+        beginShape();
+        vertex(-0.08 * this.w, 0.15 * this.h);
+        bezierVertex(-0.08 * this.w, 0.16 * this.h, -0.09 * this.w, 0.21 * this.h, 0.0 * this.w, this.h * 0.35);
+        bezierVertex(0.09 * this.w, 0.16 * this.h, 0.08 * this.w, 0.21 * this.h, 0.08 * this.w, this.h * 0.15)
+        endShape();
+        //top
+        beginShape();
+        vertex(-0.07 * this.w, -0.16 * this.h);
+        bezierVertex(-0.22 * this.w, -0.28 * this.h, -0.32 * this.w, -.55 * this.h, -0.5 * this.w, -this.h * 0.5);
+        endShape();
+        beginShape();
+        vertex(0.07 * this.w, -0.16 * this.h);
+        bezierVertex(0.22 * this.w, -0.28 * this.h, 0.32 * this.w, -.55 * this.h, 0.5 * this.w, -this.h * 0.5);
+        endShape();
+        // middle
+        beginShape();
+        vertex(0.08 * this.w, -0.05 * this.h);
+        bezierVertex(0.25 * this.w, 0.05 * this.h, 0.35 * this.w, 0.08 * this.h, 0.5 * this.w, this.h * 0.05);
+        endShape();
+        beginShape();
+        vertex(-0.08 * this.w, -0.05 * this.h);
+        bezierVertex(-0.25 * this.w, 0.05 * this.h, -0.35 * this.w, 0.08 * this.h, -0.5 * this.w, this.h * 0.);
+        endShape();
+        
+        //bottom
+        beginShape();
+        vertex(-0.07 * this.w, 0.16 * this.h);
+        bezierVertex(-0.22 * this.w, 0.28 * this.h, -0.32 * this.w, .55 * this.h, -0.5 * this.w, this.h * 0.5);
+        endShape();
+        beginShape();
+        vertex(-0.08 * this.w, 0.15 * this.h);
+        bezierVertex(-0.08 * this.w, 0.16 * this.h, -0.09 * this.w, 0.21 * this.h, 0.0 * this.w, this.h * 0.35);
+        bezierVertex(0.09 * this.w, 0.16 * this.h, 0.08 * this.w, 0.21 * this.h, 0.08 * this.w, this.h * 0.15)
+        endShape();
+        beginShape();
+        vertex(0.07 * this.w, 0.16 * this.h);
+        bezierVertex(0.22 * this.w, 0.28 * this.h, 0.32 * this.w, .55 * this.h, 0.5 * this.w, this.h * 0.5);
+        endShape();
+        pop();
+
+    }
+
+    top(angle) {
+        push();
+        translate(this.x+ this.w/2, this.y + this.h/2);
+        rotate(angle);
         //fill(this.col2);
         noFill();
         stroke(255);
@@ -102,7 +100,7 @@ class Tile {
         // middle
         beginShape();
         vertex(0.08 * this.w, -0.05 * this.h);
-        bezierVertex(0.25 * this.w, 0.05 * this.h, 0.35 * this.w, 0.08 * this.h, 0.5 * this.w, this.h * 0.);
+        bezierVertex(0.25 * this.w, 0.05 * this.h, 0.35 * this.w, 0.08 * this.h, 0.5 * this.w, this.h * 0.05);
         endShape();
         beginShape();
         vertex(-0.08 * this.w, -0.05 * this.h);
