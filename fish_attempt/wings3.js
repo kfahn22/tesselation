@@ -191,31 +191,5 @@ class Tile {
 
     }
 
-    tile() {
-        //push();
-        rect(this.x + this.w / 2, this.y + this.h / 2, this.w, this.h);
-        push();
-        translate(this.x / 2, this.y / 2);
-        rotate(this.angle);
-        noStroke();
-        fill(this.col1);
-
-        push();
-        this.top();
-        pop();
-        push();
-        this.bottom();
-        pop();
-        pop();
-    }
-    // wing3() {
-    //     noStroke();
-    //     fill(this.col1);
-    //     rect(this.x-50,this.y-50,this.w,this.h);
-    //     push();
-    //     //scale(-1, 1);
-    //     this.wing1();
-    //     pop();
-
-    // }
+ 
 }

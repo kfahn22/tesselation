@@ -1,26 +1,50 @@
+let butterflies = [];
+let num = 4;
+let j = 0;
+let frames = 60;
+let sc = 50;
+// function preload() {
+//     img = loadImage('assets/wings.jpg');
+// }
+
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(450, 450);
+    rectMode(CENTER);
+    let c1 = color('#2DC5F4');
+    let c2 = color(0, 0, 0);
+    // need an odd number!!
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            if (i % 2 == 0) {
+                butterflies.push(new Tile(i * sc, j * sc, sc, sc, c1, c2, 0));
+            } else if (i % 2 != 0) {
+                butterflies.push(new Tile(i * sc, j * sc, sc, sc, c1, c2, PI / 2));
+            }
+        }
+    }
 }
+// butterflies.push(new Tile(100,0,100,100,c1,c2,PI/2));
+
+
+
+
 
 function draw() {
-    background(255);
-    fill('#9253A1')
-    noStroke();
-    strokeWeight(2);
-    beginShape();
-    vertex(0, height);
-    bezierVertex(0.15 * width, 0.95 * height, 0.3 * width, 1 * height, 0.45 * width, height * 0.7);
-    bezierVertex(0.465 * width, 0.85 * height, 0.465 * width, 0.85 * height, 0.55 * width, height * 1);
-    line(0.55*width, height, 0, height);
-    endShape(CLOSE);
-    beginShape();
-    vertex(0.45*width, height);
-    bezierVertex(0.535 * width, 0.85 * height, 0.535 * width, 0.85 * height, 0.55* width, height * .7);
-    bezierVertex(0.7*width, height*1., 0.85*width, height*0.95, width, height);
-    line(width, height, 0.55*width, height);
-    endShape();
-}
+    background('#F063A4');
+    //translate(200,200);
+    let b = 0.15;
+    // for (let w = 100; w <100; w ++)
+    // {
+    for (let i = 0; i < 100; i++) {
+        let col = map(100, 0, 100, 0, 255);
+        if (i % 2 == 0) {
+            butterflies[i].wings(0, sc, col);
+            // j+=1;
+        } else {
+            butterflies[i].wings(PI / 2, sc, col);
+        }
+    }
+    //}
+    // b += TWO_PI/frames;//0.01;
 
-function mousePressed() {
-    save('assets/wings.jpg');
 }
