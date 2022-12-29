@@ -138,10 +138,18 @@ class Tile {
             vertex(-0.05 * w, 0.5 * this.h);
             bezierVertex(-0.04 * w, 0.45 * this.h, -0.02 * w, 0.40 * this.h, 0 * w, this.h * this.f);
             endShape();
+            beginShape();
+            vertex(-0.05 * w, -0.5 * this.h);
+            bezierVertex(-0.04 * w, -0.45 * this.h, -0.02 * w, -0.40 * this.h, 0 * w, -this.h * this.f);
+            endShape();
         } else {
             beginShape();
             vertex(0.05 * w, 0.5 * this.h);
             bezierVertex(0.04 * w, 0.45 * this.h, 0.02 * w, 0.40 * this.h, 0 * w, this.h * this.f);
+            endShape();
+            beginShape();
+            vertex(0.05 * w, -0.5 * this.h);
+            bezierVertex(0.04 * w, -0.45 * this.h, 0.02 * w, -0.40 * this.h, 0 * w, -this.h * this.f);
             endShape();
         }
         pop();
