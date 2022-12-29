@@ -107,12 +107,12 @@ class Tile {
         noStroke();
         beginShape();
         vertex(-0.5 * w, -this.h * 0.5);
-        bezierVertex(-0.32 * w, -(0.5 + this.e) * this.h, -(this.c + 0.01) * w, -this.d * this.h, -this.a * w, -0.15 * this.h);
+        bezierVertex(-0.32 * w, -(0.5 - this.e) * this.h, -(this.c + 0.01) * w, -this.d * this.h, -this.a * w, -0.15 * this.h);
         // top of body
         bezierVertex(-this.a * w, -(this.b + 0.01) * this.h, -(this.a + 0.01) * w, -this.c * this.h, 0.0 * w, -this.f * this.h);
         bezierVertex((this.a + 0.01) * w, -this.c * this.h, this.a * w, -(this.b + 0.01) * this.h, this.a * w, -this.b * this.h)
         // up to top right corner
-        bezierVertex((this.c + 0.01) * w, -this.d * this.h, 0.32 * w, -(0.5 + this.e) * this.h, 0.5 * w, -this.h * 0.5);
+        bezierVertex((this.c + 0.01) * w, -this.d * this.h, 0.32 * w, -(0.5 - this.e) * this.h, 0.5 * w, -this.h * 0.5);
         // connecting line
         bezierVertex(0.5 * w, -this.h * 0.5, 0.5 * w, -this.h * 0.5, 0.5 * w, this.h * 0.5);
         bezierVertex(0.32 * w, 0.5 * this.h, (this.c + 0.01) * w, (this.d) * this.h, this.a * w, this.b * this.h);
@@ -175,7 +175,7 @@ class Tile {
         push();
         noFill();
         stroke(c, 50);
-        strokeWeight(1)
+        strokeWeight(2)
         // beginShape();
         // vertex(-this.a * w, -this.b * this.h);
         // bezierVertex(-this.a * w, -(this.b + 0.01) * this.h, -(this.a + 0.01) * w, -this.c * this.h, 0.0 * w, -this.f * this.h);
@@ -189,11 +189,11 @@ class Tile {
         //top
         beginShape();
         vertex(-this.a * w, -0.15 * this.h);
-        bezierVertex(-0.22 * w, -this.d * this.h, -0.32 * w, -(0.5 + this.e) * this.h, -0.5 * w, -this.h * 0.5);
+        bezierVertex(-0.22 * w, -this.d * this.h, -0.32 * w, -(0.5- 0.02) * this.h, -0.5 * w, -this.h * 0.5);
         endShape();
         beginShape();
         vertex(this.a * w, -0.15 * this.h);
-        bezierVertex((this.c + 0.01) * w, -this.d * this.h, 0.32 * w, -(0.5 + this.e) * this.h, 0.5 * w, -this.h * 0.5);
+        bezierVertex((this.c + 0.01) * w, -this.d * this.h, 0.32 * w, -(0.5-0.02 ) * this.h, 0.5 * w, -this.h * 0.5);
         endShape();
         // left side - a little off
         beginShape();
