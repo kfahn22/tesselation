@@ -1,13 +1,16 @@
+// This is a port of KIFS Fractals explained by The Art of Code
+
+
+
+let textureImg;
 
 // a shader variable
 let theShader;
-let blob0;
-
 
 function preload(){
   // load the shader
-  
-  
+  // very colorful works best
+  //textureImg = loadImage("Assets/flowers.jpeg");
   theShader = loadShader('starter.vert', 'starter.frag');
 }
 
@@ -15,7 +18,7 @@ function preload(){
 function setup() {
   pixelDensity(1);
   // shaders require WEBGL mode to work
-  createCanvas(400, 400, WEBGL);
+  createCanvas(800, 800, WEBGL);
   noStroke();
 }
 
@@ -28,7 +31,7 @@ function draw() {
   theShader.setUniform("iMouse", [mouseX, map(mouseY, 0, height, height, 0)]);
   theShader.setUniform("iFrame", frameCount);
   theShader.setUniform("iTime", millis()/1000.);
- 
+  //theShader.setUniform("tex0", textureImg);
   
   // shader() sets the active shader with our shader
   shader(theShader);

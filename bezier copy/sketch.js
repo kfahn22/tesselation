@@ -3,7 +3,6 @@
 let theShader;
 let blob0;
 
-
 function preload(){
   // load the shader
   
