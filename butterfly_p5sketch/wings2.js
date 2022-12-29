@@ -77,7 +77,7 @@ class Tile {
 
     // }
 
-    tile(angle, w, col, col1, col2, col3, col4) {
+    tile(angle, w, col, col1, col2, col3, col4, col5) {
         let c;
         // translate to x,y position
         fillGradient(col);
@@ -97,7 +97,7 @@ class Tile {
         pop();
         rotate(angle);
         if (angle == 0) {
-            fill(col1);
+            fill(col5);
             c = lerpColor(col2, col3, 0.75);
         } else {
             fill(col1);
@@ -175,7 +175,7 @@ class Tile {
         push();
         noFill();
         stroke(c, 50);
-        strokeWeight(2)
+        strokeWeight(3)
         // beginShape();
         // vertex(-this.a * w, -this.b * this.h);
         // bezierVertex(-this.a * w, -(this.b + 0.01) * this.h, -(this.a + 0.01) * w, -this.c * this.h, 0.0 * w, -this.f * this.h);

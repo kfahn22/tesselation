@@ -48,9 +48,9 @@ function draw() {
     col2 = color(143,149,211); //lavender
     col3 = color(67,58,63); //dk gray
     col4 = color(165, 117,72); // brown
-    colA.colors(0, col1, 0.9, col2);
-    colB.colors(0, col2, 0.9, col1);
-    col5 = lerpColor(col3, col4, 0.5);
+    colA.colors(0, col1, 0.7, col2);
+    colB.colors(0.4, col2, 1, col1);
+    col5 = lerpColor(col1, col2, 0.33);
     let b = 0.15;
     // for (let w = 100; w <100; w ++)
     // {
@@ -59,7 +59,7 @@ function draw() {
         if (i % 2 == 0) {
             //butterflies[i].wings(0, sc, col2, col1);
             //col.colors(0, col1, col2);
-            butterflies[i].tile(0, sc, colA, col1, col2,  col3, col4)
+            butterflies[i].tile(0, sc, colA, col1, col2,  col3, col4, col5)
            
         } else {
             //col.colors(0, col2, col1);
