@@ -1,5 +1,5 @@
 // p5.patgrad library https://github.com/antiboredom/p5.patgrad
-
+// https://editor.p5js.org/kfahn/sketches/xgXgKTU9u
 
 let butterflies = [];
 let num = 4;
@@ -23,7 +23,7 @@ function setup() {
     // pattern = createPattern(buffer);
     // gradient = createLinearGradient(0, 450);
     // gradient.colors(0, "lightblue", 0.5, "pink", 1, "magenta");
- 
+    
     // need an odd number!!
     for (let i = 0; i < 9; i++) {
         for (let j = 0; j < 9; j++) {
@@ -41,23 +41,29 @@ function draw() {
     //translate(200,200);
     let c3 = color(0);
     
-    
+    //let gradient =  createRadialGradient(innerRadius, outerRadius, x, y)
+    let colA = createRadialGradient(0, 100);
+    let colB = createRadialGradient(0, 100);
     col1 = color(203,239,67);  //green
     col2 = color(143,149,211); //lavender
     col3 = color(67,58,63); //dk gray
     col4 = color(165, 117,72); // brown
+    colA.colors(0, col1, 0.9, col2);
+    colB.colors(0, col2, 0.9, col1);
     col5 = lerpColor(col3, col4, 0.5);
     let b = 0.15;
     // for (let w = 100; w <100; w ++)
     // {
     for (let i = 0; i < 81; i++) {
-        let col = map(100, 0, 81, 0, 255);
+       // let col = map(100, 0, 81, 0, 255);
         if (i % 2 == 0) {
             //butterflies[i].wings(0, sc, col2, col1);
-            butterflies[i].tile(0, sc, col2, col1, col3, col4)
+            //col.colors(0, col1, col2);
+            butterflies[i].tile(0, sc, colA, col1, col2,  col3, col4)
            
         } else {
-            butterflies[i].tile(PI / 2, sc, col2, col1, col3, col4);
+            //col.colors(0, col2, col1);
+            butterflies[i].tile(PI / 2, sc, colB, col2, col1, col3, col4);
             
         }
     }
