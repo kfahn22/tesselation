@@ -5,7 +5,7 @@ let butterflies = [];
 let num = 4;
 let j = 0;
 let frames = 60;
-let sc = 100;
+let sc =150;
 let col1, col2, col3, col4, col5;
 let buffer;
 
@@ -54,10 +54,10 @@ function draw() {
         let col = map(100, 0, 81, 0, 255);
         if (i % 2 == 0) {
             //butterflies[i].wings(0, sc, col2, col1);
-            butterflies[i].wings2(0, sc, col2, col1, col3, col4)
+            butterflies[i].tile(0, sc, col2, col1, col3, col4)
            
         } else {
-            butterflies[i].wings2(PI / 2, sc, col2, col1, col3, col4);
+            butterflies[i].tile(PI / 2, sc, col2, col1, col3, col4);
             
         }
     }

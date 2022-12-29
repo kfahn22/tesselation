@@ -77,7 +77,7 @@ class Tile {
 
     }
 
-    wings2(angle, w, col1, col2, col3, col4) {
+    tile(angle, w, col1, col2, col3, col4) {
         let c;
         // translate to x,y position
         push();
@@ -155,14 +155,76 @@ class Tile {
         }
         pop();
 
+        // body color
         push();
         fill(c);
         beginShape();
-        vertex( 0.0 * w, -this.f * this.h);
-        bezierVertex(0.09 * w, -0.25 * this.h, 0.09 * w, 0.25 * this.h,0.0 * w, this.f * this.h);
-        bezierVertex(-0.09* w, 0.25 * this.h, -0.09 * w, -0.25 * this.h,0.0 * w, -this.f * this.h);
+        vertex(0.0 * w, -this.f * this.h);
+        bezierVertex(0.09 * w, -0.25 * this.h, 0.09 * w, 0.25 * this.h, 0.0 * w, this.f * this.h);
+        bezierVertex(-0.09 * w, 0.25 * this.h, -0.09 * w, -0.25 * this.h, 0.0 * w, -this.f * this.h);
         endShape();
         pop();
+
+
+        // outline
+        push();
+        noFill();
+        stroke(c);
+        beginShape();
+        vertex(-this.a * w, -this.b * this.h);
+        bezierVertex(-this.a * w, -(this.b + 0.01) * this.h, -0.09 * w, -this.c * this.h, 0.0 * w, -this.f * this.h);
+        bezierVertex(0.09 * w, -(this.b + 0.01) * this.h, this.a * w, -this.c * this.h, this.a * w, -this.b * this.h)
+        endShape();
+        beginShape();
+        vertex(-this.a * w, this.b * this.h);
+        bezierVertex(-this.a * w, (this.b + 0.01) * this.h, -0.09 * w, this.c * this.h, 0.0 * w, this.h * this.f);
+        bezierVertex(0.09 * w, (this.b + 0.01) * this.h, this.a * w, this.c * this.h, this.a * w, this.h * this.b)
+        endShape();
+        //top
+        beginShape();
+        vertex(-this.a * w, -0.15 * this.h);
+        bezierVertex(-0.22 * w, -this.d * this.h, -0.32 * w, -(0.5 + this.e) * this.h, -0.5 * w, -this.h * 0.5);
+        endShape();
+        beginShape();
+        vertex(this.a * w, -0.15 * this.h);
+        bezierVertex((this.c + 0.01) * w, -this.d * this.h, 0.32 * w, -(0.5 + this.e) * this.h, 0.5 * w, -this.h * 0.5);
+        endShape();
+        beginShape();
+        vertex(-(this.a) * w, (this.b + 0.01) * this.h);
+        bezierVertex(-(this.c + 0.01) * w, this.d * this.h, -0.32 * w, (0.5 + this.e) * this.h, -0.5 * w, this.h * 0.5);
+        endShape();
+        // beginShape();
+        // vertex(-this.a * w, this.b * this.h);
+        // bezierVertex(-this.a * w, (this.b + 0.01) * this.h, -(this.b + 0.01) * w, this.c * this.h, 0.0 * w, this.h * (0.5 - this.b));
+        // bezierVertex((this.b + 0.01) * w, (this.b + 0.01)* this.h, this.a * w, this.c * this.h, this.a * w, this.h * this.b)
+        // endShape();
+        beginShape();
+        vertex((this.a) * w, (this.b + 0.01) * this.h);
+        bezierVertex((this.c + 0.01) * w, this.d * this.h, 0.32 * w, (0.5 + this.e) * this.h, 0.5 * w, this.h * 0.5);
+        endShape();
+        pop();
+
+
+        // attempt at spots
+        // push();
+        // translate(0.3*w, 0.25*this.h)
+        // beginShape();
+        // rotate(PI/4);
+        // stroke(c);
+        // vertex(0, 0);
+        // bezierVertex(0.3*w, 0.105*this.h, 0.3*w, -0.125*this.h, 0, 0);
+        // endShape();
+        // pop();
+        // pop();
+        // push();
+        // translate(0.4*w, 0.15*this.h)
+        // beginShape();
+        // rotate(PI/4);
+        // stroke(c);
+        // vertex(0, 0);
+        // bezierVertex(0.3*w, 0.105*this.h, 0.3*w, -0.125*this.h, 0, 0);
+        // endShape();
+        // pop();
 
         pop();
     }
