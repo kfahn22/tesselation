@@ -45,6 +45,8 @@ function draw() {
     col1 = color(203,239,67);
     col2 = color(143,149,211);
     col3 = color(67,58,63);
+    col4 = color(163, 112,53);
+    col5 = lerpColor(col3,col4, 0.5);
     let b = 0.15;
     // for (let w = 100; w <100; w ++)
     // {
@@ -52,10 +54,10 @@ function draw() {
         let col = map(100, 0, 100, 0, 255);
         if (i % 2 == 0) {
             //butterflies[i].wings(0, sc, col2, col1);
-            butterflies[i].wings2(0, sc, col2, col1, col3)
+            butterflies[i].wings2(0, sc, col2, col1, col3, col5)
            
         } else {
-            butterflies[i].wings2(PI / 2, sc, col2, col1, col3);
+            butterflies[i].wings2(PI / 2, sc, col2, col1, col3, col5);
             
         }
     }

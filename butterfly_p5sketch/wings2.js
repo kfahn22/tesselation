@@ -77,7 +77,7 @@ class Tile {
 
     }
 
-    wings2(angle, w, col1, col2) {
+    wings2(angle, w, col1, col2, col5) {
         // translate to x,y position
         push();
         translate(this.x + this.w / 2, this.y + this.h / 2);
@@ -131,8 +131,6 @@ class Tile {
         vertex(-this.a * w, -this.e * this.h);
         bezierVertex(-0.25 * w, this.e * this.h, -(0.5 - this.b) * w, this.a * this.h, -0.5 * w, this.h * 0.05);
         endShape();
-        // circle(-0.03* w, 0.5 * this.h, 5);
-        // circle(0 * w, this.h * this.f, 5);
         if (angle == 0) {
             beginShape();
             vertex(-0.05 * w, 0.5 * this.h);
@@ -154,6 +152,14 @@ class Tile {
         }
         pop();
 
+        push();
+        fill(col5);
+        beginShape();
+        vertex( 0.0 * w, -this.f * this.h);
+        bezierVertex(0.09 * w, -0.25 * this.h, 0.09 * w, 0.25 * this.h,0.0 * w, this.f * this.h);
+        bezierVertex(-0.09* w, 0.25 * this.h, -0.09 * w, -0.25 * this.h,0.0 * w, -this.f * this.h);
+        endShape();
+        pop();
 
         pop();
     }
