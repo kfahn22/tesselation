@@ -6,7 +6,7 @@ let num = 4;
 let j = 0;
 let frames = 60;
 let sc = 100;
-let col1, col2;
+let col1, col2, col3, col4, col5;
 let buffer;
 
 // function preload() {
@@ -25,8 +25,8 @@ function setup() {
     // gradient.colors(0, "lightblue", 0.5, "pink", 1, "magenta");
  
     // need an odd number!!
-    for (let i = 0; i < 5; i++) {
-        for (let j = 0; j < 5; j++) {
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
             if (i % 2 == 0) {
                 butterflies.push(new Tile(i * sc, j * sc, sc, sc));
             } else if (i % 2 != 0) {
@@ -42,22 +42,22 @@ function draw() {
     let c3 = color(0);
     
     
-    col1 = color(203,239,67);
-    col2 = color(143,149,211);
-    col3 = color(67,58,63);
-    col4 = color(163, 112,53);
-    col5 = lerpColor(col3,col4, 0.5);
+    col1 = color(203,239,67);  //green
+    col2 = color(143,149,211); //lavender
+    col3 = color(67,58,63); //dk gray
+    col4 = color(165, 117,72); // brown
+    col5 = lerpColor(col3, col4, 0.5);
     let b = 0.15;
     // for (let w = 100; w <100; w ++)
     // {
-    for (let i = 0; i < 100; i++) {
-        let col = map(100, 0, 100, 0, 255);
+    for (let i = 0; i < 81; i++) {
+        let col = map(100, 0, 81, 0, 255);
         if (i % 2 == 0) {
             //butterflies[i].wings(0, sc, col2, col1);
-            butterflies[i].wings2(0, sc, col2, col1, col3, col5)
+            butterflies[i].wings2(0, sc, col2, col1, col3, col4)
            
         } else {
-            butterflies[i].wings2(PI / 2, sc, col2, col1, col3, col5);
+            butterflies[i].wings2(PI / 2, sc, col2, col1, col3, col4);
             
         }
     }

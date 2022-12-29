@@ -4,7 +4,7 @@ class Tile {
         this.y = _y;
         this.w = _w;
         this.h = _h;
-        this.a = 0.08; // 0.08
+        this.a = 0.05; // 0.08
         this.b = 0.15;
         this.c = 0.21;
         this.d = 0.28;
@@ -42,11 +42,11 @@ class Tile {
         endShape();
         //top
         beginShape();
-        vertex(-0.08 * w, -0.15 * this.h);
+        vertex(-this.a * w, -0.15 * this.h);
         bezierVertex(-0.22 * w, -this.d * this.h, -0.32 * w, -(0.5 + this.e) * this.h, -0.5 * w, -this.h * 0.5);
         endShape();
         beginShape();
-        vertex(0.08 * w, -0.15 * this.h);
+        vertex(this.a * w, -0.15 * this.h);
         bezierVertex((this.c + 0.01) * w, -this.d * this.h, 0.32 * w, -(0.5 + this.e) * this.h, 0.5 * w, -this.h * 0.5);
         endShape();
         // middle
@@ -77,7 +77,8 @@ class Tile {
 
     }
 
-    wings2(angle, w, col1, col2, col5) {
+    wings2(angle, w, col1, col2, col3, col4) {
+        let c;
         // translate to x,y position
         push();
         translate(this.x + this.w / 2, this.y + this.h / 2);
@@ -93,24 +94,26 @@ class Tile {
         rotate(angle);
         if (angle == 0) {
             fill(col2);
+            c = lerpColor(col2, col3, 0.75);
         } else {
             fill(col1);
+            c = lerpColor(col1, col3, 0.75);
         }
 
         noStroke();
         beginShape();
         vertex(-0.5 * w, -this.h * 0.5);
-        bezierVertex(-0.32 * w, -(0.5 + this.e) * this.h, -(this.c + 0.01) * w, -this.d * this.h, -0.08 * w, -0.15 * this.h);
+        bezierVertex(-0.32 * w, -(0.5 + this.e) * this.h, -(this.c + 0.01) * w, -this.d * this.h, -this.a * w, -0.15 * this.h);
         // top of body
-        bezierVertex(-this.a * w, -(this.b + 0.01) * this.h, -0.09 * w, -this.c * this.h, 0.0 * w, -this.f * this.h);
-        bezierVertex(0.09 * w, -this.c * this.h, this.a * w, -(this.b + 0.01) * this.h, this.a * w, -this.b * this.h)
+        bezierVertex(-this.a * w, -(this.b + 0.01) * this.h, -(this.a + 0.01) * w, -this.c * this.h, 0.0 * w, -this.f * this.h);
+        bezierVertex((this.a + 0.01) * w, -this.c * this.h, this.a * w, -(this.b + 0.01) * this.h, this.a * w, -this.b * this.h)
         // up to top right corner
         bezierVertex((this.c + 0.01) * w, -this.d * this.h, 0.32 * w, -(0.5 + this.e) * this.h, 0.5 * w, -this.h * 0.5);
         // connecting line
         bezierVertex(0.5 * w, -this.h * 0.5, 0.5 * w, -this.h * 0.5, 0.5 * w, this.h * 0.5);
         bezierVertex(0.32 * w, 0.5 * this.h, (this.c + 0.01) * w, (this.d) * this.h, this.a * w, this.b * this.h);
         // bottom of body
-        bezierVertex(0.09 * w, (this.b + 0.01) * this.h, (this.a) * w, this.c * this.h, 0 * w, this.h * this.f);
+        bezierVertex((this.a + 0.01) * w, (this.b + 0.01) * this.h, (this.a) * w, this.c * this.h, 0 * w, this.h * this.f);
         bezierVertex(-(this.a) * w, this.c * this.h, -(this.a + 0.01) * w, (this.b + 0.01) * this.h, -this.a * w, this.b * this.h);
         //bezierVertex(-(this.c + 0.01) * w, this.d * this.h, -0.32 * w, (0.5 +this.e) * this.h, -0.5 * w, this.h * 0.5);
         // to bottom left corner
@@ -122,7 +125,7 @@ class Tile {
         // Add markings
         // middle
         push();
-        stroke(col3);
+        stroke(c);
         beginShape();
         vertex(this.a * w, -this.e * this.h);
         bezierVertex(0.25 * w, this.e * this.h, (0.5 - this.b) * w, this.a * this.h, 0.5 * w, this.h * (this.e));
@@ -153,7 +156,7 @@ class Tile {
         pop();
 
         push();
-        fill(col5);
+        fill(c);
         beginShape();
         vertex( 0.0 * w, -this.f * this.h);
         bezierVertex(0.09 * w, -0.25 * this.h, 0.09 * w, 0.25 * this.h,0.0 * w, this.f * this.h);
