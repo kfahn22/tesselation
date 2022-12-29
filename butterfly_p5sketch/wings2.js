@@ -101,14 +101,16 @@ class Tile {
         beginShape();
         vertex(-0.5 * w, -this.h * 0.5);
         bezierVertex(-0.32 * w, -(0.5 + this.e) * this.h, -0.22 * w, -this.d * this.h, -0.08 * w, -0.15 * this.h);
+        // top of body
         bezierVertex(-this.a * w, -(this.b + 0.01) * this.h, -0.09 * w, -this.c * this.h, 0.0 * w, -this.f * this.h);
-        bezierVertex(0.09 * w, -(this.b + 0.01) * this.h, this.a * w, -this.c * this.h, this.a * w, -this.b * this.h)
+        bezierVertex(0.09 * w, -this.c * this.h, this.a * w,  -(this.b + 0.01) * this.h, this.a * w, -this.b * this.h)
         bezierVertex((this.c + 0.01) * w, -this.d * this.h, 0.32 * w, -(0.5 + this.e) * this.h, 0.5 * w, -this.h * 0.5);
         bezierVertex(0.5 * w, -this.h * 0.5, 0.5 * w, -this.h * 0.5, 0.5 * w, this.h * 0.5);
         bezierVertex(0.32 * w, 0.5 * this.h, (this.c + 0.01) * w, (this.d) * this.h, this.a * w, this.b * this.h);
-        bezierVertex(0.09 * w, (this.b + 0.01) * this.h, (this.a) * w, this.c * this.h, 0 * w, this.h * this.f);
-        bezierVertex(-this.a * w, (this.b + 0.01) * this.h, -(this.a + 0.01) * w, this.c * this.h, -this.a * w, this.h * this.b);
-        bezierVertex(-(this.c + 0.01) * w, this.d * this.h, -0.32 * w, (0.5 + this.e) * this.h, -0.5 * w, this.h * 0.5);
+        // bottom of body
+        bezierVertex(0.09 * w, (this.b + 0.01)* this.h, (this.a) * w, this.c * this.h, 0 * w, this.h * this.f);
+        bezierVertex(-(this.a+0.01) * w, this.c * this.h, -(this.a + 0.01) * w, (this.b + 0.01) * this.h, -this.a * w, this.h * this.b);
+        bezierVertex(-(this.c + 0.01) * w, this.d * this.h, -0.32 * w, (0.5 +this.e) * this.h, -0.5 * w, this.h * 0.5);
         bezierVertex(-0.5 * w, this.h * 0.5, -0.5 * w, this.h * 0.5, -0.5 * w, -this.h * 0.5);
         endShape(CLOSE);
         pop();
