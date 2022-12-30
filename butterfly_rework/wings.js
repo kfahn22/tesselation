@@ -1,3 +1,5 @@
+// a = 0.05; b = 0.15; c = .21; d = 0.28; e = 0.5; f = 0.35;
+
 let c;
 
 class Tile {
@@ -13,71 +15,6 @@ class Tile {
         this.e = 0.05;
         this.f = 0.35;
     }
-
-    // wings(angle, w, col1, col2, col3) {
-    //     //fillGradient(col1);
-
-    //     push();
-    //     translate(this.x + this.w / 2, this.y + this.h / 2);
-    //     rotate(angle);
-    //     push();
-    //     noStroke();
-    //     fill(col1);
-    //     rect(0, 0, this.w, this.h);
-    //     pop();
-    //     noFill();
-    //     let m = map(w, 30, 100, 100, 100);
-    //     stroke(col2, 255, 255);
-    //     strokeWeight(2);
-    //     //noStroke();
-    //     //circle(0, 0, 2);
-    //     // body
-    //     beginShape();
-    //     vertex(-this.a * w, -this.b * this.h);
-    //     bezierVertex(-this.a * w, -(this.b + 0.01) * this.h, -0.09 * w, -this.c * this.h, 0.0 * w, -this.f * this.h);
-    //     bezierVertex((this.a + 0.01) * w, -(this.b + 0.01) * this.h, this.a * w, -this.c * this.h, this.a * w, -this.b * this.h)
-    //     endShape();
-    //     beginShape();
-    //     vertex(-this.a * w, this.b * this.h);
-    //     bezierVertex(-this.a * w, (this.b + 0.01) * this.h, -(this.a + 0.01) * w, this.c * this.h, 0.0 * w, this.h * this.f);
-    //     bezierVertex((this.a + 0.01) * w, (this.b + 0.01) * this.h, this.a * w, this.c * this.h, this.a * w, this.h * this.b)
-    //     endShape();
-    //     //top
-    //     beginShape();
-    //     vertex(-this.a * w, -0.15 * this.h);
-    //     bezierVertex(-0.22 * w, -this.d * this.h, -0.32 * w, -(0.5 + this.e) * this.h, -0.5 * w, -this.h * 0.5);
-    //     endShape();
-    //     beginShape();
-    //     vertex(this.a * w, -0.15 * this.h);
-    //     bezierVertex((this.c + 0.01) * w, -this.d * this.h, 0.32 * w, -(0.5 + this.e) * this.h, 0.5 * w, -this.h * 0.5);
-    //     endShape();
-    //     // middle
-    //     beginShape();
-    //     vertex(this.a * w, -this.e * this.h);
-    //     bezierVertex(0.25 * w, this.e * this.h, (0.5 - this.b) * w, this.a * this.h, 0.5 * w, this.h * this.e);
-    //     endShape();
-    //     beginShape();
-    //     vertex(-this.a * w, -this.e * this.h);
-    //     bezierVertex(-0.25 * w, this.e * this.h, -(0.5 - this.b) * w, this.a * this.h, -0.5 * w, this.h * 0.);
-    //     endShape();
-
-    //     //bottom
-    //     beginShape();
-    //     vertex(-(this.a) * w, (this.b + 0.01) * this.h);
-    //     bezierVertex(-(this.c + 0.01) * w, this.d * this.h, -0.32 * w, (0.5 + this.e) * this.h, -0.5 * w, this.h * 0.5);
-    //     endShape();
-    //     // beginShape();
-    //     // vertex(-this.a * w, this.b * this.h);
-    //     // bezierVertex(-this.a * w, (this.b + 0.01) * this.h, -(this.b + 0.01) * w, this.c * this.h, 0.0 * w, this.h * (0.5 - this.b));
-    //     // bezierVertex((this.b + 0.01) * w, (this.b + 0.01)* this.h, this.a * w, this.c * this.h, this.a * w, this.h * this.b)
-    //     // endShape();
-    //     beginShape();
-    //     vertex((this.a) * w, (this.b + 0.01) * this.h);
-    //     bezierVertex((this.c + 0.01) * w, this.d * this.h, 0.32 * w, (0.5 + this.e) * this.h, 0.5 * w, this.h * 0.5);
-    //     endShape();
-    //     pop();
-
-    // }
 
     tile(angle, w, col, col1, col2, col3, col4, col5) {
         c;
@@ -171,23 +108,12 @@ class Tile {
         endShape();
         pop();
 
-
-
         // outline
         push();
         noFill();
         stroke(c, 50);
         strokeWeight(3)
-        // beginShape();
-        // vertex(-this.a * w, -this.b * this.h);
-        // bezierVertex(-this.a * w, -(this.b + 0.01) * this.h, -(this.a + 0.01) * w, -this.c * this.h, 0.0 * w, -this.f * this.h);
-        // bezierVertex((this.a + 0.01) * w, -(this.b + 0.01) * this.h, this.a * w, -this.c * this.h, this.a * w, -this.b * this.h)
-        // endShape();
-        // beginShape();
-        // vertex(-this.a * w, this.b * this.h);
-        // bezierVertex(-this.a * w, (this.b + 0.01) * this.h, -(this.a + 0.01) * w, this.c * this.h, 0.0 * w, this.h * this.f);
-        // bezierVertex((this.a + 0.01) * w, (this.b + 0.01) * this.h, this.a * w, this.c * this.h, this.a * w, this.h * this.b)
-        // endShape();
+       
         //top
         beginShape();
         vertex(-this.a * w, -0.15 * this.h);
@@ -213,45 +139,6 @@ class Tile {
         endShape();
         pop();
 
-        // // Another try at spots
-        // push();
-        // fill(c);
-        // // 1
-        // translate(0.4 * w, 0.31 * this.h);
-        // rotate(-PI * 0.32);
-        // ellipse(0, 0, 3, 10);
-        // pop();
-        // push();
-        // //2
-        // fill(c);
-        // translate(0.45 * w, 0.205 * this.h)
-        // rotate(-PI * 0.36);
-        // //translate(0.15*w, 0.4*this.h)
-        // ellipse(0, 0, 3, 10);
-        // pop();
-        // //3
-        // push();
-        // fill(c)
-        // translate(0.120 * w, 0.39 * this.h)
-        // rotate(PI * 1.05);
-        // ellipse(0, 0, 3, 10);
-        // pop();
-        // //1
-        // push();
-        // translate(-0.4 * w, 0.31 * this.h);
-        // rotate(PI * 0.32);
-        // ellipse(0, 0, 3, 10);
-        // pop();
-        // //2 bottom left
-        // push();
-        // fill(c);
-        // translate(-0.45 * w, 0.205 * this.h)
-        // rotate(PI * 0.36);
-        // //translate(0.15*w, 0.4*this.h)
-        // ellipse(0, 0, 3, 10);
-        // pop();
-        //3
-
         pop();
     }
 
@@ -266,9 +153,9 @@ class Tile {
             
             push();
             // purple
-            circle((0.20) * sc, (0.46) * sc, r);
+            circle((0.20) * sc, (0.46) * sc, 1.2*r);
             circle((0.1) * sc, (0.38) * sc, r);
-            circle((0.20) * sc, (-0.46) * sc, r);
+            circle((0.20) * sc, (-0.46) * sc, 1.2*r);
             circle((0.1) * sc, (-0.38) * sc, r);
             // green
             circle((-0.45) * sc, (-0.33) * sc, r);
@@ -281,8 +168,8 @@ class Tile {
             circle((0.32) * sc, (-0.42) * sc, r);
             // green
             circle((-0.38) * sc, (-0.10) * sc, r);
-            circle((-0.45) * sc, (-0.2) * sc, r);
-            circle((0.45) * sc, (-0.2) * sc, r);
+            circle((-0.45) * sc, (-0.2) * sc, 1.2*r);
+            circle((0.45) * sc, (-0.2) * sc, 1.2*r);
             circle((0.38) * sc, (-0.10) * sc, r);
         }
         pop();
