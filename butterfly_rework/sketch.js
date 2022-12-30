@@ -61,10 +61,12 @@ function draw() {
             //col.colors(0, col1, col2);
             butterflies[i].tile(0, sc, colA, col1, col2,  col3, col4, col5)
             butterflies[i].spots(0, sc, 3);
+            butterflies[i].markings(0,sc,3,10);
         } else {
             //col.colors(0, col2, col1);
             butterflies[i].tile(PI / 2, sc, colB, col2, col1, col3, col4);
             butterflies[i].spots(PI/2, sc, 3);
+            butterflies[i].markings(PI/2,sc,3,10);
         }
     }
     //}

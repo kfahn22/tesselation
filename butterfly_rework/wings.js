@@ -1,3 +1,5 @@
+let c;
+
 class Tile {
     constructor(_x, _y, _w, _h) {
         this.x = _x;
@@ -78,7 +80,7 @@ class Tile {
     // }
 
     tile(angle, w, col, col1, col2, col3, col4, col5) {
-        let c;
+        c;
         // translate to x,y position
         fillGradient(col);
         push();
@@ -256,10 +258,12 @@ class Tile {
     spots(angle, sc, r) {
         // top right -- green
         push();
+        fill(255);
+        stroke(c);
+            //noStroke();
         translate(this.x + this.w / 2, this.y + this.h / 2);
         if (angle == 0) {
-            fill(255);
-            //noStroke();
+            
             push();
             // purple
             circle((0.20) * sc, (0.46) * sc, r);
@@ -272,57 +276,74 @@ class Tile {
 
             pop();
         } else {
-            fill(255)
-                // gives two circles right purple
-                circle((0.32) * sc, (0.42) * sc, r);
-                circle((0.32) * sc, (-0.42) * sc, r);
-                // green
-                circle((-0.38) * sc, (-0.10) * sc, r);
-                circle((-0.45) * sc, (-0.2) * sc, r);
-                circle((0.45) * sc, (-0.2) * sc, r);
-                circle((0.38) * sc, (-0.10) * sc, r);
+            // gives two circles right purple
+            circle((0.32) * sc, (0.42) * sc, r);
+            circle((0.32) * sc, (-0.42) * sc, r);
+            // green
+            circle((-0.38) * sc, (-0.10) * sc, r);
+            circle((-0.45) * sc, (-0.2) * sc, r);
+            circle((0.45) * sc, (-0.2) * sc, r);
+            circle((0.38) * sc, (-0.10) * sc, r);
         }
         pop();
 
     }
     markings(angle, sc, rw, rh) {
-        // Another try at spots
-        push();
-        fill(255);
-        // 1
-        translate(0.4 * sc, 0.31 * sc);
-        rotate(-PI * 0.32);
-        ellipse(0, 0, rw, rh);
-        pop();
-        push();
-        //2
+        noStroke();
         fill(c);
-        translate(0.45 * w, 0.205 * this.h)
-        rotate(-PI * 0.36);
-        //translate(0.15*w, 0.4*this.h)
-        ellipse(0, 0, 3, 10);
-        pop();
-        //3
         push();
-        fill(c)
-        translate(0.120 * w, 0.39 * this.h)
-        rotate(PI * 1.05);
-        ellipse(0, 0, 3, 10);
-        pop();
-        //1
-        push();
-        translate(-0.4 * w, 0.31 * this.h);
-        rotate(PI * 0.32);
-        ellipse(0, 0, 3, 10);
-        pop();
-        //2 bottom left
-        push();
-        fill(c);
-        translate(-0.45 * w, 0.205 * this.h)
-        rotate(PI * 0.36);
-        //translate(0.15*w, 0.4*this.h)
-        ellipse(0, 0, 3, 10);
-        pop();
-        //3
+        translate(this.x + this.w / 2, this.y + this.h / 2);
+        
+        if (angle == 0) {
+            // markings on green
+            // 1
+            push();
+            translate(0.38 * sc, 0.33 * sc);
+            rotate(-PI * 0.32);
+            ellipse(0, 0, rw, rh);
+            pop();
+            push();
+            translate(0.4 * sc, 0.24 * sc)
+            rotate(-PI * 0.36);
+            ellipse(0, 0, rw, 2*rh);
+            pop();
+            push();
+            translate(-0.38 * sc, 0.33 * sc);
+            rotate(PI * 0.32);
+            ellipse(0, 0, rw, rh);
+            pop();
+            push();
+            translate(-0.4 * sc, 0.24 * sc)
+            rotate(PI * 0.36);
+            ellipse(0, 0, rw, 1.5*rh);
+            pop();
+        } else {
+            push();
+            fill(c);
+            translate(-0.3 * sc, 0.40 * sc);
+            rotate(PI * 0.65);
+            ellipse(0, 0, rh, rw);
+            pop();
+            push();
+            fill(c);
+            translate(-0.175 * sc, 0.40 * sc);
+            rotate(PI * 0.65);
+            ellipse(0, 0, rh*2, rw);
+            pop();
+            push();
+            fill(c);
+            translate(-0.3 * sc, -0.40 * sc);
+            rotate(-PI * 0.65);
+            ellipse(0, 0, rh, rw);
+            pop();
+            push();
+            fill(c);
+            translate(-0.175 * sc, -0.42 * sc);
+            rotate(-PI * 0.65);
+            ellipse(0, 0, rh*1.5, rw);
+            pop();
+        }
+
+       pop();
     }
 }
