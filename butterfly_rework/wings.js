@@ -211,35 +211,90 @@ class Tile {
         endShape();
         pop();
 
-
-        // attempt at spots
+        // // Another try at spots
         // push();
-        // translate(0.3*w, 0.25*this.h)
-        // beginShape();
-        // rotate(PI/4);
-        // stroke(c);
-        // vertex(0, 0);
-        // bezierVertex(0.3*w, 0.105*this.h, 0.3*w, -0.125*this.h, 0, 0);
-        // endShape();
-        // pop();
+        // fill(c);
+        // // 1
+        // translate(0.4 * w, 0.31 * this.h);
+        // rotate(-PI * 0.32);
+        // ellipse(0, 0, 3, 10);
         // pop();
         // push();
-        // translate(0.4*w, 0.15*this.h)
-        // beginShape();
-        // rotate(PI/4);
-        // stroke(c);
-        // vertex(0, 0);
-        // bezierVertex(0.3*w, 0.105*this.h, 0.3*w, -0.125*this.h, 0, 0);
-        // endShape();
+        // //2
+        // fill(c);
+        // translate(0.45 * w, 0.205 * this.h)
+        // rotate(-PI * 0.36);
+        // //translate(0.15*w, 0.4*this.h)
+        // ellipse(0, 0, 3, 10);
         // pop();
+        // //3
+        // push();
+        // fill(c)
+        // translate(0.120 * w, 0.39 * this.h)
+        // rotate(PI * 1.05);
+        // ellipse(0, 0, 3, 10);
+        // pop();
+        // //1
+        // push();
+        // translate(-0.4 * w, 0.31 * this.h);
+        // rotate(PI * 0.32);
+        // ellipse(0, 0, 3, 10);
+        // pop();
+        // //2 bottom left
+        // push();
+        // fill(c);
+        // translate(-0.45 * w, 0.205 * this.h)
+        // rotate(PI * 0.36);
+        // //translate(0.15*w, 0.4*this.h)
+        // ellipse(0, 0, 3, 10);
+        // pop();
+        //3
 
+        pop();
+    }
+
+    spots(angle, sc, r) {
+        // top right -- green
+        push();
+        translate(this.x + this.w / 2, this.y + this.h / 2);
+        if (angle == 0) {
+            fill(255);
+            //noStroke();
+            push();
+            // purple
+            circle((0.20) * sc, (0.46) * sc, r);
+            circle((0.13) * sc, (0.38) * sc, r);
+            circle((0.20) * sc, (-0.46) * sc, r);
+            circle((0.1) * sc, (-0.38) * sc, r);
+            // green
+            circle((-0.45) * sc, (-0.33) * sc, r);
+            circle((0.45) * sc, (-0.33) * sc, r);
+
+            pop();
+        } else {
+            fill(255)
+            for (let i = 0; i < 4; i++) {
+                // gives two circles right purple
+                circle((0.32) * sc, (0.42) * sc, r);
+                circle((0.32) * sc, (-0.42) * sc, r);
+                // green
+                circle((-0.38) * sc, (-0.10) * sc, r);
+                circle((-0.45) * sc, (-0.2) * sc, r);
+                circle((0.38) * sc, (-0.10) * sc, r);
+                circle((0.45) * sc, (-0.2) * sc, r);
+            }
+        }
+        pop();
+
+    }
+    markings(angle, sc, rw, rh) {
         // Another try at spots
         push();
-        fill(c);
+        fill(255);
         // 1
-        translate(0.4 * w, 0.31 * this.h);
+        translate(0.4 * sc, 0.31 * sc);
         rotate(-PI * 0.32);
-        ellipse(0, 0, 3, 10);
+        ellipse(0, 0, rw, rh);
         pop();
         push();
         //2
@@ -271,58 +326,5 @@ class Tile {
         ellipse(0, 0, 3, 10);
         pop();
         //3
-        // top right -- green
-        push();
-        fill(255)
-        translate(-0.120 * w, 0.39 * this.h)
-        rotate(PI * 1.05);
-        circle(0, 0, 3);
-        pop();
-        push();
-        fill(255)
-        translate(-0.225* w, 0.47 * this.h)
-        rotate(PI * 0.8);
-        circle(0, 0, 3);
-        pop();
-        push();
-        fill(255)
-        translate(-0.075 * w, 0.30 * this.h)
-        rotate(PI * 1.05);
-        circle(0, 0, 3);
-        pop();
-        push();
-        fill(255)
-        translate(-0.32 * w, 0.55 * this.h)
-        rotate(PI * 1.05);
-        circle(0, 0, 3);
-        pop();
-        // top left -- green
-        push();
-        fill(255)
-        translate(-0.120 * w, -0.39 * this.h)
-        rotate(PI * 1.05);
-        circle(0, 0, 3);
-        pop();
-        push();
-        fill(255)
-        translate(-0.075 * w, -0.30 * this.h)
-        rotate(PI * 1.05);
-        circle(0, 0, 3);
-        pop();
-        push();
-        fill(255)
-        translate(-0.225* w, -0.47 * this.h)
-        rotate(PI * 0.8);
-        circle(0, 0, 3);
-        pop();
-        push();
-        fill(255)
-        translate(-0.075 * w, 0.30 * this.h)
-        rotate(PI * 1.05);
-        circle(0, 0, 3);
-        pop();
-        pop();
     }
-
-
 }
