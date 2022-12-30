@@ -263,7 +263,7 @@ class Tile {
             push();
             // purple
             circle((0.20) * sc, (0.46) * sc, r);
-            circle((0.13) * sc, (0.38) * sc, r);
+            circle((0.1) * sc, (0.38) * sc, r);
             circle((0.20) * sc, (-0.46) * sc, r);
             circle((0.1) * sc, (-0.38) * sc, r);
             // green
@@ -273,16 +273,14 @@ class Tile {
             pop();
         } else {
             fill(255)
-            for (let i = 0; i < 4; i++) {
                 // gives two circles right purple
                 circle((0.32) * sc, (0.42) * sc, r);
                 circle((0.32) * sc, (-0.42) * sc, r);
                 // green
                 circle((-0.38) * sc, (-0.10) * sc, r);
                 circle((-0.45) * sc, (-0.2) * sc, r);
-                circle((0.38) * sc, (-0.10) * sc, r);
                 circle((0.45) * sc, (-0.2) * sc, r);
-            }
+                circle((0.38) * sc, (-0.10) * sc, r);
         }
         pop();
 
