@@ -15,8 +15,8 @@ function draw() {
   stroke(71,59, 240);
   strokeWeight(3);
   noFill();
-  for (j = 0; j < 10; j++){
-    for (i = 0; i < 2; i++) {
+  for (j = 0; j < 3; j++){
+    for (i = 0; i < 3; i++) {
       tesselateB(7*j+i,7*j+i);
       translate(9.5*step, 3.5*step);
       tesselateB(7*i,7*i);

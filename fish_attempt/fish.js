@@ -19,21 +19,21 @@ class fishTile {
 
         push();
         if (i % 2 == 0) {
-           push();
-           stroke(255,0,0);
+            push();
+            stroke(255, 0, 0);
             translate(this.x + this.w / 2, this.y + this.h / 2);
             pop();
         } else {
-           //push();
-           translate(-this.w / 3, -this.h* 2/3);
-           //pop();
+            //push();
+            translate(-this.w / 3, -this.h * 2 / 3);
+            //pop();
         }
         circle(0, 0, 5);
         scale(f, 1);
         noFill();
         let m = map(w, 30, 100, 100, 100);
         stroke(col, 255, 255);
-        strokeWeight(2);
+        strokeWeight(1);
         //noStroke();
         //circle(0, 0, 2);
         // body
@@ -57,16 +57,19 @@ class fishTile {
         // vertex(0.08 * w, -0.15 * this.h);
         // bezierVertex((this.c + 0.01) * w, -this.d * this.h, 0.32 * w, -(0.5 + this.e) * this.h, 0.5 * w, -this.h * 0.5);
         // endShape();
+
         beginShape();
         vertex(-0.15 * w, -.5 * this.h);
         bezierVertex(0.125 * w, -0.35 * this.h, 0.33 * w, -0.25 * this.h, 0.5 * w, -this.h * 0.05);
         bezierVertex(0.5 * w, -0.05 * this.h, 0.37 * w, 0.3 * this.h, 0.1 * w, this.h * 0.5);
         bezierVertex(0.175 * w, 0.40 * this.h, 0.175 * w, 0.25 * this.h, 0.15 * w, this.h * 0.25);
         bezierVertex(0.1 * w, 0.25 * this.h, 0.025 * w, 0.4 * this.h, -0.15 * w, this.h * 0.5);
-        bezierVertex(-0.06 * w, 0.3 * this.h, -0.07 * w, 0.25 * this.h, -0.15 * w, this.h * 0.15);
+        // *** inside corner 
+        bezierVertex(-0.1 * w, 0.3 * this.h, -0.1 * w, 0.25 * this.h, -0.15 * w, this.h * 0.15);
         bezierVertex(-0.15 * w, 0.15 * this.h, -0.45 * w, 0.30 * this.h, -0.5 * w, this.h * 0.25);
         bezierVertex(-0.35 * w, 0.10 * this.h, -0.35 * w, -0.10 * this.h, -0.5 * w, -this.h * 0.15);
         bezierVertex(-0.35 * w, -0.18 * this.h, -0.3 * w, -0.1 * this.h, -0.15 * w, -this.h * 0.1);
+        // *** top of fin
         bezierVertex(-0.2 * w, -0.18 * this.h, -0.18 * w, -0.15 * this.h, -0.15 * w, -this.h * 0.5);
         endShape();
         // beginShape();
@@ -93,7 +96,62 @@ class fishTile {
         // vertex((this.a) * w, (this.b + 0.01) * this.h);
         // bezierVertex((this.c + 0.01) * w, this.d * this.h, 0.32 * w, (0.5 + this.e) * this.h, 0.5 * w, this.h * 0.5);
         // endShape();
+
+
+        // nose
+        push();
+        fill(255, 0, 0);
+        noStroke();
+        circle(0.5 * w, -this.h * 0.05, 8);
+        pop();
+        // bottom of fin
+        push();
+        fill(255, 0, 255);
+        noStroke();
+        circle(0.1 * w, this.h * 0.5, 8);
+        pop();
+        // inside bottom
+        push();
+        fill(255, 255, 0);
+        noStroke();
+        circle(0.15 * w, this.h * 0.25, 8);
+        pop();
+        // bottom back corner of  body
+        push();
+        fill(0, 0, 255);
+        noStroke();
+        circle(-0.15 * w, this.h * 0.5, 8);
+        pop();
+         // inside corner back bottom ***
+         push();
+         fill(0, 125, 255);
+         noStroke();
+         circle( -0.15 * w, this.h * 0.15, 8);
+         pop();
+        // bottom tip of tail
+        push();
+        fill(0, 255, 255);
+        noStroke();
+        circle(-0.5 * w, this.h * 0.25, 8);
+        pop();
+        // top tip of tail
+        push();
+        fill(0, 255, 0);
+        noStroke();
+        circle(-0.5 * w, -this.h * 0.15, 8);
         pop();
 
+        // inside top
+        push();
+        fill(125, 0, 125);
+        noStroke();
+        circle(-0.15 * w, -this.h * 0.1, 8);
+        pop();
+        // tip of top fin ***
+        push();
+        fill(0, 125, 0);
+        noStroke();
+        circle(-0.15 * w, -this.h * 0.5, 8);
+        pop();
     }
 }

@@ -5,7 +5,7 @@ let butterflies = [];
 let num = 4;
 let j = 0;
 let frames = 60;
-let sc = 50;
+let sc = 200;
 let col1, col2, col3, col4, col5;
 let buffer;
 
@@ -42,15 +42,25 @@ function draw() {
     let c3 = color(0);
     
     //let gradient =  createRadialGradient(innerRadius, outerRadius, x, y)
-    let colA = createRadialGradient(0, 2/3*sc);
-    let colB = createRadialGradient(0, 2/3*sc);
-    col1 = color(203,239,67);  //green
-    col2 = color(143,149,211); //lavender
+    // need inner radius and outer radius, x ,y optioal
+     let colA = createRadialGradient(0, 2/3*sc);
+    // let colB = createRadialGradient(0, 0.66*sc);
+    //let colA = createConicGradient(PI*0.0, 0.5*sc, 0.5*sc);
+    let colB = createConicGradient(PI*0.0, 0.5*sc, 0.5*sc); // purple
+    // col1 = color(203,239,67);  //green
+    // col2 = color(143,149,211); //lavender
+    // col3 = color(67,58,63); //dk gray
+    // col4 = color(165, 117,72); // brown
+    col1 = color(167,201,87);  //green
+    col2 = color(140,57,163); // purple
     col3 = color(67,58,63); //dk gray
-    col4 = color(165, 117,72); // brown
-    colA.colors(0, col1, 0.7, col2);
-    colB.colors(0.4, col2, 1, col1);
+    //col4 = color(165, 117,72); // brown
+    //colA.colors(0, col2, 0.33, col1, 0.66, col2);
+   colA.colors(0, col2, 0.7, col1);
+    //colB.colors(0.3, col2, 1, col1);
+    colB.colors(0, col1, 0.2, col2,  0.75, col1);
     col5 = lerpColor(col1, col2, 0.33);
+    col6 = lerpColor(col1, col2, 0.66);
     let b = 0.15;
     // for (let w = 100; w <100; w ++)
     // {
@@ -59,14 +69,14 @@ function draw() {
         if (i % 2 == 0) {
             //butterflies[i].wings(0, sc, col2, col1);
             //col.colors(0, col1, col2);
-            butterflies[i].tile(0, sc, colA, col1, col2,  col3, col4, col5)
-            butterflies[i].spots(0, sc, 3);
-            butterflies[i].markings(0,sc,3,10);
+            butterflies[i].tile(0, sc, colA, col1, col2, col3, col5)
+            // butterflies[i].spots(0, sc, 0.04*sc);
+            // butterflies[i].markings(0,sc, 0.05*sc,0.1*sc);
         } else {
-            //col.colors(0, col2, col1);
-            butterflies[i].tile(PI / 2, sc, colB, col2, col1, col3, col4);
-            butterflies[i].spots(PI/2, sc, 3);
-            butterflies[i].markings(PI/2,sc,3,10);
+            // (colB) color 2 vertical allignment
+            butterflies[i].tile(PI / 2, sc, colB, col2, col1, col3, col5);
+            // butterflies[i].spots(PI/2, sc, 0.04*sc);
+            // butterflies[i].markings(PI/2,sc, 0.05*sc,0.1*sc);
         }
     }
     //}

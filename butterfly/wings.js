@@ -19,21 +19,15 @@ class Tile {
     tile(angle, w, col, col1, col2, col3, col4, col5) {
         c;
         // translate to x,y position
+        // must add gradient outside of push/pop to work
         fillGradient(col);
+        noStroke(); // don't want lines around grid
         push();
         translate(this.x + this.w / 2, this.y + this.h / 2);
         push();
-        noStroke();
-        // if (angle == 0) {
-        //     fillGradient(col1);
-        //    // fill(col1);
-        // } else {
-        //     fillGradient(col2);
-        //     //fill(col2);
-        // }
-
         rect(0, 0, this.w, this.h);
         pop();
+        // alternate color of grids
         rotate(angle);
         if (angle == 0) {
             fill(col5);
@@ -42,7 +36,7 @@ class Tile {
             fill(col1);
             c = lerpColor(col1, col3, 0.75);
         }
-
+        // body of butterfly
         noStroke();
         beginShape();
         vertex(-0.5 * w, -this.h * 0.5);
@@ -65,8 +59,8 @@ class Tile {
         bezierVertex(-0.5 * w, this.h * 0.5, -0.5 * w, this.h * 0.5, -0.5 * w, -this.h * 0.5);
         endShape(CLOSE);
 
-        // Add markings
-        // middle
+        // Add middle line to define wings 
+        // from middle of body to edge of grid
         push();
         stroke(c);
         beginShape();
@@ -77,6 +71,7 @@ class Tile {
         vertex(-this.a * w, -this.e * this.h);
         bezierVertex(-0.25 * w, this.e * this.h, -(0.5 - this.b) * w, this.a * this.h, -0.5 * w, this.h * 0.05);
         endShape();
+        // this bit continues line edge of grid to from tip of body
         if (angle == 0) {
             beginShape();
             vertex(-0.05 * w, 0.5 * this.h);
@@ -98,7 +93,7 @@ class Tile {
         }
         pop();
 
-        // body color
+        // middle body color
         push();
         fill(c);
         beginShape();
@@ -108,7 +103,7 @@ class Tile {
         endShape();
         pop();
 
-        // outline
+        // outline butterfly
         push();
         noFill();
         stroke(c, 50);
@@ -128,11 +123,7 @@ class Tile {
         vertex(-(this.a) * w, (this.b + 0.01) * this.h);
         bezierVertex(-(this.c + 0.01) * w, this.d * this.h, -0.32 * w, (0.5 + 0.02) * this.h, -0.5 * w, this.h * 0.5);
         endShape();
-        // beginShape();
-        // vertex(-this.a * w, this.b * this.h);
-        // bezierVertex(-this.a * w, (this.b + 0.01) * this.h, -(this.b + 0.01) * w, this.c * this.h, 0.0 * w, this.h * (0.5 - this.b));
-        // bezierVertex((this.b + 0.01) * w, (this.b + 0.01)* this.h, this.a * w, this.c * this.h, this.a * w, this.h * this.b)
-        // endShape();
+        
         beginShape();
         vertex((this.a) * w, (this.b + 0.01) * this.h);
         bezierVertex((this.c + 0.01) * w, this.d * this.h, 0.32 * w, (0.5 + 0.02) * this.h, 0.5 * w, this.h * 0.5);
@@ -143,14 +134,12 @@ class Tile {
     }
 
     spots(angle, sc, r) {
-        // top right -- green
         push();
         fill(255);
         stroke(c);
-            //noStroke();
+        
         translate(this.x + this.w / 2, this.y + this.h / 2);
         if (angle == 0) {
-            
             push();
             // purple
             circle((0.20) * sc, (0.46) * sc, 1.2*r);
@@ -163,7 +152,7 @@ class Tile {
 
             pop();
         } else {
-            // gives two circles right purple
+            // purple
             circle((0.32) * sc, (0.42) * sc, r);
             circle((0.32) * sc, (-0.42) * sc, r);
             // green
@@ -175,6 +164,8 @@ class Tile {
         pop();
 
     }
+
+
     markings(angle, sc, rw, rh) {
         noStroke();
         fill(c);
@@ -183,7 +174,6 @@ class Tile {
         
         if (angle == 0) {
             // markings on green
-            // 1
             push();
             translate(0.38 * sc, 0.33 * sc);
             rotate(-PI * 0.32);

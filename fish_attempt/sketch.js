@@ -5,9 +5,9 @@ let frames = 60;
 let sc = 100;
 
 function setup() {
-    createCanvas(600, 600, WEBGL);
+    createCanvas(400, 400, WEBGL);
     rectMode(CENTER);
-    let c1 = color('#2DC5F4');
+    let c1 = color(0);
     let c2 = color(0, 0, 0);
     // need an odd number!!
     for (let i = 0; i < 9; i++) {
@@ -24,7 +24,7 @@ function setup() {
 // }
 
 function draw() {
-    background('#F063A4');
+    background(0);
    
     // for (let i = 0; i < 100; i++) {
     //     let col = map(100, 0, 100, 0, 255);
