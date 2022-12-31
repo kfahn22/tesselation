@@ -5,7 +5,7 @@ let butterflies = [];
 let num = 4;
 let j = 0;
 let frames = 60;
-let sc = 50;
+let sc =100;
 let col1, col2, col3, col4, col5;
 // a = 0.05; b = 0.15; c = .21; d = 0.28; e = 0.5; f = 0.35;
 
@@ -48,13 +48,20 @@ function draw() {
             //butterflies[i].wings(0, sc, col2, col1);
             //col.colors(0, col1, col2);
             butterflies[i].tile(0, sc, colA, col1, col2,  col3, col4, col5)
-            butterflies[i].spots(0, sc, 0.06*sc);
+            //butterflies[i].spots(0, sc, 0.06*sc);
             butterflies[i].markings(0,sc,0.06*sc,0.2*sc);
+            for (let j = 0; j < 4; j++) {
+                butterflies[i].addSpots(0, j, sc, 0.04*sc, -1);
+            }
         } else {
             //col.colors(0, col2, col1);
             butterflies[i].tile(PI/2, sc, colB, col2, col1, col3, col4);
-            butterflies[i].spots(PI/2, sc, 0.06*sc);
+           // butterflies[i].spots(PI/2, sc, 0.06*sc);
             butterflies[i].markings(PI/2,sc,0.06*sc,0.2*sc);
+            for (let j = 0; j < 4; j++) {
+           // butterflies[i].addSpots(PI/2, j, sc, 0.04*sc, 1);
+          butterflies[i].addSpots(PI/2, j, sc, 0.04*sc, -1);
+            }
         }
     }
 }

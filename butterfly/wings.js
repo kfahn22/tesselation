@@ -108,7 +108,7 @@ class Tile {
         noFill();
         stroke(c, 50);
         strokeWeight(3)
-       
+
         //top
         beginShape();
         vertex(-this.a * w, -0.15 * this.h);
@@ -123,7 +123,7 @@ class Tile {
         vertex(-(this.a) * w, (this.b + 0.01) * this.h);
         bezierVertex(-(this.c + 0.01) * w, this.d * this.h, -0.32 * w, (0.5 + 0.02) * this.h, -0.5 * w, this.h * 0.5);
         endShape();
-        
+
         beginShape();
         vertex((this.a) * w, (this.b + 0.01) * this.h);
         bezierVertex((this.c + 0.01) * w, this.d * this.h, 0.32 * w, (0.5 + 0.02) * this.h, 0.5 * w, this.h * 0.5);
@@ -137,14 +137,14 @@ class Tile {
         push();
         fill(255);
         stroke(c);
-        
+
         translate(this.x + this.w / 2, this.y + this.h / 2);
         if (angle == 0) {
             push();
             // purple
-            circle((0.20) * sc, (0.46) * sc, 1.2*r);
+            circle((0.20) * sc, (0.46) * sc, 1.2 * r);
             circle((0.1) * sc, (0.38) * sc, r);
-            circle((0.20) * sc, (-0.46) * sc, 1.2*r);
+            circle((0.20) * sc, (-0.46) * sc, 1.2 * r);
             circle((0.1) * sc, (-0.38) * sc, r);
             // green
             circle((-0.45) * sc, (-0.33) * sc, r);
@@ -157,43 +157,133 @@ class Tile {
             circle((0.32) * sc, (-0.42) * sc, r);
             // green
             circle((-0.38) * sc, (-0.10) * sc, r);
-            circle((-0.45) * sc, (-0.2) * sc, 1.2*r);
-            circle((0.45) * sc, (-0.2) * sc, 1.2*r);
+            circle((-0.45) * sc, (-0.2) * sc, 1.2 * r);
+            circle((0.45) * sc, (-0.2) * sc, 1.2 * r);
             circle((0.38) * sc, (-0.10) * sc, r);
         }
         pop();
 
     }
+    // m multiplier 1 or -1 to swtich sides
+    addSpots(angle, j, sc, r, m) {
+        push();
+        fill(255);
+        stroke(c);
 
+        translate(this.x + this.w / 2, this.y + this.h / 2);
+        if (angle == 0) {
+            push();
+            // purple
+            //circle((0.1*i) * sc, (0.46) * sc, 1.2 * r);
+            //circle((0.1*j) * sc, (-0.34+0.01*j) * sc, (1 + j*0.2)*r);
+            // circle((0.1*i) * sc, (-0.46) * sc, 1.2 * r);
+            // circle((0.1*i) * sc, (-0.38) * sc, r);
+            // green
+            // circle((-0.45) * sc, (-0.33) * sc, r);
+            // circle((0.45) * sc, (-0.33) * sc, r);
+            circle(m*(0.76- 0.1*pow(j, 1)) * sc, m*(0.08+0.1*pow(j, 1.1)) * sc, (1 - j*0.1)*r);
+            pop();
+        } else {
+            push();
+            //let rn = random(0.01, 0.02);
+            // purple
+            circle(m*(1.- 0.1*pow(j, 1)) * sc, m*(0.08+0.1*pow(j, 1.1)) * sc, (1 - j*0.1)*r);
+            // circle((0.3*i) * sc, (0.42) * sc, r);
+            // circle((0.32) * sc, (-0.42) * sc, r);
+            // // green
+            // circle((-0.38) * sc, (-0.10) * sc, r);
+            // circle((-0.45) * sc, (-0.2) * sc, 1.2 * r);
+            // circle((0.45) * sc, (-0.2) * sc, 1.2 * r);
+            // circle((0.38) * sc, (-0.10) * sc, r);
+            circle(m*(0.25+0.1*pow(j, 1.1)) * sc, m*(0.08+ 0.1*pow(j, 1)) * sc, (1 - j*0.1)*r);
+       pop();
+        }
+        pop();
+
+    }
 
     markings(angle, sc, rw, rh) {
         noStroke();
         fill(c);
         push();
         translate(this.x + this.w / 2, this.y + this.h / 2);
-        
+
         if (angle == 0) {
             // markings on green
+            // push();
+            // translate(0.38 * sc, 0.33 * sc);
+            // rotate(-PI * 0.32);
+            // ellipse(0, 0, rw, rh);
+            // pop();
+            // more complex marking
             push();
-            translate(0.38 * sc, 0.33 * sc);
-            rotate(-PI * 0.32);
-            ellipse(0, 0, rw, rh);
+            translate(0.47 * sc, 0.36 * sc);
+            rotate(PI * 0.75);
+            beginShape();
+            vertex(0, 0);
+            quadraticVertex(0.8 * rw, -0.3 * rh, 1.4 * rw, 0, 1.3 * rw);
+            quadraticVertex(1. * rw, 1. * rh, 1.3 * rw, 1.2 * rh);
+            quadraticVertex(0.9 * rw, 1. * rh, 0.6 * rw, 1.2 * rh);
+            endShape();
             pop();
+
             push();
-            translate(0.4 * sc, 0.24 * sc)
-            rotate(-PI * 0.36);
-            ellipse(0, 0, rw, 2*rh);
+            translate(-0.425 * sc, 0.42 * sc);
+            rotate(-PI * 0.65);
+            beginShape();
+            vertex(0, 0);
+            quadraticVertex(0.8 * rw, -0.3 * rh, 1.4 * rw, 0, 1.3 * rw);
+            quadraticVertex(1. * rw, 1. * rh, 1.3 * rw, 1.2 * rh);
+            quadraticVertex(0.9 * rw, 1. * rh, 0.6 * rw, 1.2 * rh);
+            endShape();
             pop();
+
             push();
-            translate(-0.38 * sc, 0.33 * sc);
-            rotate(PI * 0.32);
-            ellipse(0, 0, rw, rh);
+            translate(0.2 * sc, 0.36 * sc);
+            //circle(0,0,4);
+            rotate(PI * 0.55);
+            beginShape();
+            // vertex(0,0);
+            // quadraticVertex(0.8*rw, -0.3*rh, 1.4*rw,0,1.3*rw);
+            // quadraticVertex(1.*rw, 1.*rh, 1.3*rw, 1.2*rh);
+            // quadraticVertex(0.9*rw, 1.*rh, 0.6*rw, 1.2*rh);
+            endShape();
             pop();
-            push();
-            translate(-0.4 * sc, 0.24 * sc)
-            rotate(PI * 0.36);
-            ellipse(0, 0, rw, 1.5*rh);
-            pop();
+
+            // push();
+            // translate(-0.45 * sc, 0.25 * sc);
+            // circle(0,0,4);
+            // rotate(-PI * 0.525);
+            // fill(255,0,0);
+            // circle(-0.9 * rw, 0.1 * rh, 5);
+            // beginShape();
+            // vertex(0, 0);
+            // quadraticVertex(0.6 * rw, 0.5 * rh, 1.2 * rw, 1.2 * rh);
+            // quadraticVertex(0.8 * rw, 1.1 * rh, 0.8* rw, 1.2 * rh);
+            // quadraticVertex(-0.3 * rw, 0.7 * rh, -0.9 * rw, 0.1 * rh);
+            // quadraticVertex(-0.4 * rw, -0.3 * rh, 0 * rw, 0.0 * rh);
+            // endShape();
+            
+            // pop();
+
+            this.mark(-0.55, 0.3, 0.05, 2, sc, 1.45)
+
+
+            // push();
+            // translate(0.4 * sc, 0.24 * sc)
+            // rotate(-PI * 0.36);
+            // ellipse(0, 0, rw, 2*rh);
+            // pop();
+            // push();
+            // translate(-0.38 * sc, 0.33 * sc);
+            // rotate(PI * 0.32);
+            // ellipse(0, 0, rw, rh);
+            // pop();
+            // push();
+            // translate(-0.4 * sc, 0.24 * sc)
+            // rotate(PI * 0.36);
+            // ellipse(0, 0, rw, 1.5 * rh);
+            // pop();
         } else {
             push();
             fill(c);
@@ -205,7 +295,7 @@ class Tile {
             fill(c);
             translate(-0.175 * sc, 0.40 * sc);
             rotate(PI * 0.65);
-            ellipse(0, 0, rh*2, rw);
+            ellipse(0, 0, rh * 2, rw);
             pop();
             push();
             fill(c);
@@ -217,10 +307,79 @@ class Tile {
             fill(c);
             translate(-0.175 * sc, -0.42 * sc);
             rotate(-PI * 0.65);
-            ellipse(0, 0, rh*1.5, rw);
+            ellipse(0, 0, rh * 1.5, rw);
             pop();
-        }
 
-       pop();
+            //green marking
+            push();
+            translate(-0.45 * sc, 0.25 * sc);
+            //circle(0,0,4);
+            rotate(PI * 0.725);
+            beginShape();
+            vertex(0, 0);
+            quadraticVertex(1. * rw, -0.3 * rh, 1.5 * rw, 0, 1.3 * rh);
+            quadraticVertex(1.3 * rw, 0.9 * rh, 1.3 * rw, 0.9 * rh);
+            quadraticVertex(0.7 * rw, 0.7 * rh, 0.6 * rw, 1. * rh);
+            endShape();
+            //circle(1.3 * rw, 0.9 * rh, 5);
+            pop();
+            push();
+            translate(-0.37 * sc, 0.125 * sc);
+            //circle(0,0,4);
+            rotate(PI * 0.65);
+            beginShape();
+            vertex(0, 0);
+            quadraticVertex(1. * rw, -0.3 * rh, 1.4 * rw, 0, 1.3 * rh);
+            quadraticVertex(1.3 * rw, 0.9 * rh, 1.4 * rw, 0.7 * rh);
+            quadraticVertex(0.7 * rw, 0.6 * rh, 0.9 * rw, 0.8 * rh);
+            endShape();
+           // circle(1.4 * rw, 0.6 * rh, 5);
+            pop();
+            // push();
+            // translate(0.45 * sc, 0.25 * sc);
+            // //circle(0,0,4);
+            // rotate(PI * 0.725);
+            // beginShape();
+            // vertex(0, 0);
+            // quadraticVertex(1. * rw, -0.3 * rh, 1.5 * rw, 0, 1.3 * rh);
+            // quadraticVertex(1.3 * rw, 0.9 * rh, 1.3 * rw, 0.9 * rh);
+            // quadraticVertex(0.7 * rw, 0.7 * rh, 0.6 * rw, 1. * rh);
+            // endShape();
+            //circle(1.3 * rw, 0.9 * rh, 5);
+            // pop();
+            // push();
+            // translate(0.39 * sc, 0.205 * sc);
+            // circle(0,0,4);
+            // rotate(-PI * 0.55);
+            // beginShape();
+            // vertex(0, 0);
+            // quadraticVertex(1. * rw, -0.3 * rh, 1.4 * rw, 0, 1.3 * rh);
+            // quadraticVertex(1.3 * rw, 0.9 * rh, 1.4 * rw, 0.7 * rh);
+            // quadraticVertex(0.7 * rw, 0.6 * rh, 0.9 * rw, 0.8 * rh);
+            // endShape();
+           // circle(1.4 * rw, 0.6 * rh, 5);
+            pop();
+           
+        }
+        
+       
+        pop();
+    }
+
+    mark(a, b, c, e, sc, ang) {
+        push();
+        translate(a * sc, b * sc);
+        //circle(0,0,4);
+        rotate(PI * ang);
+        beginShape();
+        vertex(0, 0);
+        quadraticVertex(c * sc, -c * sc, pow(e, 1) * c * sc, 0);
+        quadraticVertex((c-0.01)*2 * sc, c * sc, pow(e,1) * c * sc, pow(e,2) * c * sc);
+        quadraticVertex(pow(e, 0.7) * c * sc, pow(e, 1.8)*c * sc, 1*c * sc, pow(e, 2.2) * c * sc); // 3.5
+        //quadraticVertex(1.5 * c * sc, 3.5*c * sc, 1*c * sc, pow(e, 2.2) * c * sc); // 3.5
+        quadraticVertex(1 * c * sc, pow(e,2.)*c * sc, 0 * sc, 0. * sc);
+        endShape();
+     // circle(1*c * sc, pow(e, 2.2) * c * sc, 5);
+        pop();
     }
 }
