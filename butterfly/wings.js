@@ -174,6 +174,7 @@ class Tile {
         if (angle == 0) {
             push();
             // purple
+            circle(m*(0.92- 0.1*pow(j, 1)) * sc, m*(0.75-0.1*pow(j, 1.1)) * sc, (1 - j*0.1)*r);
             //circle((0.1*i) * sc, (0.46) * sc, 1.2 * r);
             //circle((0.1*j) * sc, (-0.34+0.01*j) * sc, (1 + j*0.2)*r);
             // circle((0.1*i) * sc, (-0.46) * sc, 1.2 * r);
@@ -181,13 +182,13 @@ class Tile {
             // green
             // circle((-0.45) * sc, (-0.33) * sc, r);
             // circle((0.45) * sc, (-0.33) * sc, r);
-            circle(m*(0.76- 0.1*pow(j, 1)) * sc, m*(0.08+0.1*pow(j, 1.1)) * sc, (1 - j*0.1)*r);
+            circle(m*(0.75- 0.1*pow(j, 1)) * sc, m*(0.08+0.1*pow(j, 1.1)) * sc, (1 - j*0.1)*r);
             pop();
         } else {
             push();
             //let rn = random(0.01, 0.02);
             // purple
-            circle(m*(1.- 0.1*pow(j, 1)) * sc, m*(0.08+0.1*pow(j, 1.1)) * sc, (1 - j*0.1)*r);
+            circle(m*(0.92 - 0.1*pow(j, 1)) * sc, m*(0.25+0.1*pow(j, 1.1)) * sc, (1 - j*0.1)*r);
             // circle((0.3*i) * sc, (0.42) * sc, r);
             // circle((0.32) * sc, (-0.42) * sc, r);
             // // green
