@@ -175,27 +175,14 @@ class Tile {
             push();
             // purple
             circle(m*(0.92- 0.1*pow(j, 1)) * sc, m*(0.75-0.1*pow(j, 1.1)) * sc, (1 - j*0.1)*r);
-            //circle((0.1*i) * sc, (0.46) * sc, 1.2 * r);
-            //circle((0.1*j) * sc, (-0.34+0.01*j) * sc, (1 + j*0.2)*r);
-            // circle((0.1*i) * sc, (-0.46) * sc, 1.2 * r);
-            // circle((0.1*i) * sc, (-0.38) * sc, r);
             // green
-            // circle((-0.45) * sc, (-0.33) * sc, r);
-            // circle((0.45) * sc, (-0.33) * sc, r);
             circle(m*(0.75- 0.1*pow(j, 1)) * sc, m*(0.08+0.1*pow(j, 1.1)) * sc, (1 - j*0.1)*r);
             pop();
         } else {
             push();
-            //let rn = random(0.01, 0.02);
             // purple
             circle(m*(0.92 - 0.1*pow(j, 1)) * sc, m*(0.25+0.1*pow(j, 1.1)) * sc, (1 - j*0.1)*r);
-            // circle((0.3*i) * sc, (0.42) * sc, r);
-            // circle((0.32) * sc, (-0.42) * sc, r);
-            // // green
-            // circle((-0.38) * sc, (-0.10) * sc, r);
-            // circle((-0.45) * sc, (-0.2) * sc, 1.2 * r);
-            // circle((0.45) * sc, (-0.2) * sc, 1.2 * r);
-            // circle((0.38) * sc, (-0.10) * sc, r);
+             // green
             circle(m*(0.25+0.1*pow(j, 1.1)) * sc, m*(0.08+ 0.1*pow(j, 1)) * sc, (1 - j*0.1)*r);
        pop();
         }
@@ -367,20 +354,56 @@ class Tile {
         pop();
     }
 
-    mark(a, b, c, e, sc, ang) {
+    addMark(angle, m, j, u, e, sc, ang) {
         push();
-        translate(a * sc, b * sc);
+        fill(c);
+        stroke(c);
+
+        translate(this.x + this.w / 2, this.y + this.h / 2);
+        if (angle == 0) {
+        push();
+        translate(m*(-0.75 + 0.1*pow(j, 1)) * sc, m*(0.1+0.1*pow(j, 1.1)) * sc);
         //circle(0,0,4);
-        rotate(PI * ang);
+        rotate(m*PI * ang);
         beginShape();
         vertex(0, 0);
-        quadraticVertex(c * sc, -c * sc, pow(e, 1) * c * sc, 0);
-        quadraticVertex((c-0.01)*2 * sc, c * sc, pow(e,1) * c * sc, pow(e,2) * c * sc);
-        quadraticVertex(pow(e, 0.7) * c * sc, pow(e, 1.8)*c * sc, 1*c * sc, pow(e, 2.2) * c * sc); // 3.5
+        quadraticVertex(u * sc, -u * sc, pow(e, 1) * u * sc, 0);
+        quadraticVertex((u-0.01)*2 * sc, u * sc, pow(e,1) * u * sc, pow(e,2) * u * sc);
+        quadraticVertex(pow(e, 0.7) * u * sc, pow(e, 1.8)*u * sc, 1*u * sc, pow(e, 2.2) * u * sc); // 3.5
         //quadraticVertex(1.5 * c * sc, 3.5*c * sc, 1*c * sc, pow(e, 2.2) * c * sc); // 3.5
-        quadraticVertex(1 * c * sc, pow(e,2.)*c * sc, 0 * sc, 0. * sc);
+        quadraticVertex(1 * u * sc, pow(e,2.)*u * sc, 0 , 0. );
         endShape();
      // circle(1*c * sc, pow(e, 2.2) * c * sc, 5);
+        pop();
+        // push();
+        // translate(m*(0.75 - 0.1*pow(j, 1)) * sc, m*(-0.9+0.1*pow(j, 1.1)) * sc);
+        // //circle(0,0,4);
+        // rotate(m*PI * ang);
+        // beginShape();
+        // vertex(0, 0);
+        // quadraticVertex(u * sc, -u * sc, pow(e, 1) * u * sc, 0);
+        // quadraticVertex((u-0.01)*2 * sc, u * sc, pow(e,1) * u * sc, pow(e,2) * u * sc);
+        // quadraticVertex(pow(e, 0.7) * u * sc, pow(e, 1.8)*u * sc, 1*u * sc, pow(e, 2.2) * u * sc); // 3.5
+        // //quadraticVertex(1.5 * c * sc, 3.5*c * sc, 1*c * sc, pow(e, 2.2) * c * sc); // 3.5
+        // quadraticVertex(1 * u * sc, pow(e,2.)*u * sc, 0 , 0. );
+        // endShape();
+        // pop();
+        } else {
+            push();
+            translate(m*(-0.275 - 0.1*pow(j, 1)) * sc, m*(0.1+0.1*pow(j, 1.1)) * sc);
+            //circle(0,0,4);
+            scale(1, -1);
+            rotate(PI * 0.35);
+            beginShape();
+            vertex(0, 0);
+            quadraticVertex(u * sc, -u * sc, pow(e, 1) * u * sc, 0);
+            quadraticVertex((u-0.01)*2 * sc, u * sc, pow(e,1) * u * sc, pow(e,2) * u * sc);
+            quadraticVertex(pow(e, 0.7) * u * sc, pow(e, 1.8)*u * sc, 1*u * sc, pow(e, 2.2) * u * sc); // 3.5
+            //quadraticVertex(1.5 * c * sc, 3.5*c * sc, 1*c * sc, pow(e, 2.2) * c * sc); // 3.5
+            quadraticVertex(1 * u * sc, pow(e,2.)*u * sc, 0 , 0. );
+            endShape();
+            pop();
+        }
         pop();
     }
 }
