@@ -4,7 +4,6 @@
 let butterflies = [];
 let num = 4;
 let j = 0;
-let frames = 60;
 let sc = 50;
 let col1, col2, col3, col4, col5;
 // a = 0.05; b = 0.15; c = .21; d = 0.28; e = 0.5; f = 0.35;

@@ -9,19 +9,8 @@ const X_AXIS = 2;
 
 function setup() {
   createCanvas(500, 300);
-
-  // size of grid
-  //x = width / 100;
-  //y = height / 100;
-  //let area = x * y;
-  
   // working parameters
   // screws up a bit when changed
-  // a = 4;
-  // b = 8;
-  // c = a + b;
-  // d = 5;
-  // e = 10;
   
   //TODO:  work on adding animation changing d or e
   a = 4;
