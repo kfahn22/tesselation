@@ -16,7 +16,7 @@
 
 <img class="img" src="ASSETS/butterfly_spots.jpg" alt="Butterfly tesselation" style=" display: block;
     margin-left: auto;
-    margin-right: auto;" width="800" height="450">
+    margin-right: auto;" width="450" height="450">
 
 - [Code]()
 - [P5 sketch]()
