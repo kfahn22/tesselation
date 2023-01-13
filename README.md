@@ -15,7 +15,7 @@
 
 ## Generic tesselation
 
-### This is my first go at a generic tesselation algorithm.  Unfortunately, trying to animate by changing the parameters dynamically seems to be too computationally expensive.  Additionally, since the last column rightmost border is not the same, their might be a problem with the algorithm.
+### This is my first go at a generic tesselation algorithm.  Unfortunately, trying to animate by changing the parameters dynamically seems to be too computationally expensive.  Additionally, since the border is not the same, there is probably an issue with the algorithm.
 
 <img class="img" src="ASSETS/tess.jpg" alt="Generic tesselation" style=" display: block;
     margin-left: auto;
