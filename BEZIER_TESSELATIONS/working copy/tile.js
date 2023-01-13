@@ -1,75 +1,39 @@
-let clr;
-
 class Tile {
-    constructor(_x, _a1, _a2, _a, _b, _c, _d, _e, _num) {
+    constructor(_x, _y, _w, _h, _a, _b, _c, _d, _col, _angle) {
         this.x = _x;
-        // this.tW = _tW;
-        // this.sH = _sH; // shear Height
-        this.shearAngle = _a1;
-        this.rotateAngle = _a2;
-        this.a = _a;
+        this.y = _y;
+        this.w = _w;
+        this.h = _h;
+        this.a = _a; 
         this.b = _b;
         this.c = _c;
         this.d = _d;
-        this.e = _e;
-        this.num = _num;
-        this.col = color(random(255), 0, random(255));
+        this.col = _col;
+        this.angle = _angle;
     }
-
-    halfTile() {
+   
+    basic() {
         push();
+        stroke(255);
+        translate(this.x + this.w / 2, this.y + this.h / 2);
+        shearX(PI/4);
+        fill(this.col);
         beginShape();
-        vertex(0, 0);
-        bezierVertex(this.a * this.x, -this.a * this.x, this.b * this.x, this.a * this.x, this.c * this.x, 0);
-        line(this.c * this.x, 0, 2 * this.a * this.x, this.d * this.x);
-        line(2 * this.a * this.x, this.d * this.x, this.c * this.x, this.e * this.x);
-        endShape();
+        vertex(-0.5 * this.w, -this.h * 0.5);
+        bezierVertex(-this.a * this.w, -this.b * this.h, this.a * this.w, -(0.5+this.b) * this.h, 0.5 * this.w, -this.h * 0.5);
+        bezierVertex(this.c * this.w, -this.d * this.h, (this.c + 0.5) * this.w, this.d * this.h, 0.5 * this.w, this.h * 0.5);
+        bezierVertex(this.a * this.w, this.b * this.h, -this.a* this.w, (this.b + 0.5) * this.h, -0.5 * this.w, this.h * 0.5);
+        bezierVertex(-this.c * this.w, this.d * this.h, -(this.c + 0.5) * this.w, -this.d * this.h, -0.5 * this.w, -this.h * 0.5);
+        endShape(CLOSE);
         pop();
     }
 
-    tile() {
-        push();
-        shearX(this.shearAngle);
-        this.halfTile(x);
-        translate(this.c * this.x, this.e * this.x);
-        rotate(this.rotateAngle);
-        this.halfTile(this.x);
-        pop();
-    }
 
-    tileTranslate() {
-        push();
-        noFill();
-        strokeWeight(2);
-        for (let i = 0; i < this.num; i++) {
-            stroke(this.col);
-            translate(this.a + this.b * this.x, this.e * this.x);
-            this.tile();
-        }
-        // this.tile();
-        // stroke(255, 0, 0);
-        // translate(this.a + this.b * this.x, this.e * this.x);
-        // this.tile();
-        pop();
-    }
+   
 
-    tileGlide() {
-        push();
-        noFill();
-        strokeWeight(2);
-        stroke(this.col);
-        this.tile();
-        translate((2 * this.a + this.d) * this.x, this.d * this.x);
-        this.tile();
-        pop();
-    }
+  
 
-    oneUnit() {
-        noFill();
-        strokeWeight(2);
-        stroke(this.col);
-        this.tileTranslate();
-        translate((2 * this.a + this.d) * this.x, this.d * this.x);
-        this.tileGlide();
-    }
+    
+
+  
 }
