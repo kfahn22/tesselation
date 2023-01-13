@@ -60,17 +60,24 @@ class fishTile {
 
         beginShape();
         vertex(-0.15 * w, -.5 * this.h);
+        // nose - red
         bezierVertex(0.125 * w, -0.35 * this.h, 0.33 * w, -0.25 * this.h, 0.5 * w, -this.h * 0.05);
+        // bottom of fine - fushia
         bezierVertex(0.5 * w, -0.05 * this.h, 0.37 * w, 0.3 * this.h, 0.1 * w, this.h * 0.5);
+        // inside bottom - yellow
         bezierVertex(0.175 * w, 0.40 * this.h, 0.175 * w, 0.25 * this.h, 0.15 * w, this.h * 0.25);
+        // back fin - blue
         bezierVertex(0.1 * w, 0.25 * this.h, 0.025 * w, 0.4 * this.h, -0.15 * w, this.h * 0.5);
-        // *** inside corner 
+        // *** inside corner  - turquoies
         bezierVertex(-0.1 * w, 0.3 * this.h, -0.1 * w, 0.25 * this.h, -0.15 * w, this.h * 0.15);
+        // bottom of tail - aqua
         bezierVertex(-0.15 * w, 0.15 * this.h, -0.45 * w, 0.30 * this.h, -0.5 * w, this.h * 0.25);
-        bezierVertex(-0.35 * w, 0.10 * this.h, -0.35 * w, -0.10 * this.h, -0.5 * w, -this.h * 0.15);
-        bezierVertex(-0.35 * w, -0.18 * this.h, -0.3 * w, -0.1 * this.h, -0.15 * w, -this.h * 0.1);
-        // *** top of fin
-        bezierVertex(-0.2 * w, -0.18 * this.h, -0.18 * w, -0.15 * this.h, -0.15 * w, -this.h * 0.5);
+        // top of tail - bright green
+        bezierVertex(-0.35 * w, 0.10 * this.h, -0.35 * w, -0.10 * this.h, -0.475 * w, -this.h * 0.4);
+        // inside top -- redish purple
+        bezierVertex(-0.3 * w, -0.2 * this.h, -0.25 * w, -0.2 * this.h, -0.15 * w, -this.h * 0.15);
+        // *** top of fin - kelly green
+        bezierVertex(-0.3 * w, -0.2 * this.h, -0.18 * w, -0.15 * this.h, -0.15 * w, -this.h * 0.5);
         endShape();
         // beginShape();
         // vertex(0.08 * w, -0.15 * this.h);
