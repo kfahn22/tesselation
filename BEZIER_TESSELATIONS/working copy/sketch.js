@@ -12,7 +12,7 @@ function setup() {
     createCanvas(850, 450);
     rectMode(CENTER);
     let a = .25,
-        b = .25,
+        b = .45,
         c = .25,
         d = .25;
     let sh = PI/4; // shear angle

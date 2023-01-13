@@ -16,7 +16,7 @@ class Tile {
         push();
         stroke(255);
         translate(this.x + this.w / 2, this.y + this.h / 2);
-        shearX(PI/4);
+        shearX(this.angle);
         fill(this.col);
         beginShape();
         vertex(-0.5 * this.w, -this.h * 0.5);
