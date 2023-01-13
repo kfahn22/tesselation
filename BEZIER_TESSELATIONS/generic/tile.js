@@ -22,18 +22,9 @@ class Tile {
         vertex(-0.5 * this.w, -this.h * 0.5);
         bezierVertex(-this.a * this.w, -this.b * this.h, this.a * this.w, -(0.5+this.b) * this.h, 0.5 * this.w, -this.h * 0.5);
         bezierVertex(this.c * this.w, -this.d * this.h, (this.c + 0.5) * this.w, this.d * this.h, 0.5 * this.w, this.h * 0.5);
-        bezierVertex(this.a * this.w, this.b * this.h, -this.a* this.w, (this.b + 0.5) * this.h, -0.5 * this.w, this.h * 0.5);
+        bezierVertex(this.a * this.w, (this.b) * this.h, -this.a* this.w, (this.b+0.5) * this.h, -0.5 * this.w, this.h * 0.5);
         bezierVertex(-this.c * this.w, this.d * this.h, -(this.c + 0.5) * this.w, -this.d * this.h, -0.5 * this.w, -this.h * 0.5);
         endShape(CLOSE);
         pop();
     }
-
-
-   
-
-  
-
-    
-
-  
 }
