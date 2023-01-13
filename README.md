@@ -4,7 +4,7 @@
 
 ## Butterfly tesselation
 
-### I am using the bezier curve to create the butterfly object.  I am using the [p5.PatGrad](https://github.com/antiboredom/p5.patgrad) to add the fill color to each tile.
+### I am using the bezier curve to create the butterfly object and [p5.PatGrad](https://github.com/antiboredom/p5.patgrad) to add the fill color to each tile.
 
 <img class="img" src="ASSETS/butterfly_spots.jpg" alt="Butterfly tesselation" style=" display: block;
     margin-left: auto;
