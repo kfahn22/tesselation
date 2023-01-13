@@ -15,12 +15,14 @@
 
 ## Generic tesselation
 
-### This is my first go at a generic tesselation algorithm.  Unforetunately, trying to animate by changing the parameters dynamically seems to be computationally expensive.
+### This is my first go at a generic tesselation algorithm.  Unfortunately, trying to animate by changing the parameters dynamically seems to be too computationally expensive.
 
 <img class="img" src="ASSETS/tess.jpg" alt="Generic tesselation" style=" display: block;
     margin-left: auto;
     margin-right: auto;" width="450" height="450">
-- [Code]()
+
+- [Code](https://github.com/kfahn22/tesselation/tree/main/BEZIER_TESSELATIONS/generic)
+- [Code](https://editor.p5js.org/kfahn/sketches/0GNan1LJ6)
 
 ## Tesselation with shear
 
